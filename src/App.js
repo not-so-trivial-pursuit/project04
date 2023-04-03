@@ -1,6 +1,5 @@
-import './App.css';
-
-
+import './index.css';
+import Nav from './components/Nav';
 import Main from './components/Main';
 import Home from './components/Home';
 import Footer from './components/Footer';
@@ -12,7 +11,7 @@ import {Routes, Route, Link } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      
+    <Nav />
     <Main />
 
       <Routes>

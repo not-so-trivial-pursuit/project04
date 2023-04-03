@@ -10,16 +10,18 @@ const Main = () => {
     const [ trivia, setTrivia ] = useState([]);
     const [ numQuest, setNumQuest ] = useState(10);
     const [ questionCategory, setQuestionCategory ] = useState(0);
+    const [ title, setTitle ] = useState('');
 
-    const handleChange = (event, selectorNum, selectorCat ) => {
+    const handleSubmit = (event, selectorNum, selectorCat, selectorTitle ) => {
         event.preventDefault();
         
         selectorNum !=="placeholder" ? setNumQuest(selectorNum) : setNumQuest(10);
+        
+        selectorCat !=="placeholder" ? setQuestionCategory(selectorCat) : setQuestionCategory(0);
 
-        setQuestionCategory(selectorCat)
-        // selectorCat !=="placeholder" ? setCategory(selectorCat) : 
-
+        setTitle(selectorTitle);
     }
+
 
 
     useEffect(()=>{
@@ -28,20 +30,22 @@ const Main = () => {
             url: 'https://opentdb.com/api.php',
             params: {
                 amount: numQuest,
-                category: questionCategory
+                category: questionCategory,
+                type: 'multiple'
             }
             
         }).then((apiData)=>{
-            // console.log(apiData.data.results)
             setTrivia(apiData.data.results)
+            
         })
 
     }, [numQuest],[questionCategory])
 
-
+    console.log(trivia);
 
     return (
-        <Form handleChange={handleChange}/>
+        <Form 
+        handleSubmit={handleSubmit}  />
     )
 }
 
