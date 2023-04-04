@@ -60,6 +60,7 @@ const Main = () => {
 
     }, [] )
 
+    //   for(let key in dbObj){
 
     const fetchData = ()=>{
 

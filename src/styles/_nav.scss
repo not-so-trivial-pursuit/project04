@@ -1,0 +1,11 @@
+nav{
+    .logo{
+        display: flex;
+        figure{
+            flex-basis: 5%;
+        }
+        h3{
+            flex-basis: 80%;
+        }
+    }
+}
