@@ -1,9 +1,10 @@
 // Main.js
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import Form from './Form';
 import app from './Firebase';
+import { useState, useEffect } from 'react';
 import { getDatabase, ref,  onValue, push } from 'firebase/database';
+
+import Form from './Form';
 
 
 
@@ -13,33 +14,54 @@ const Main = () => {
     const [ numQuest, setNumQuest ] = useState(10);
     const [ questionCategory, setQuestionCategory ] = useState(0);
     const [ title, setTitle ] = useState('');
-    const [ categoryString, setCategoryString ] = useState('');
-    
 
+    const [ savedGames, setSavedGames ] = useState([]);
+    console.log(savedGames)
 
-    const handleSubmit = (event, selectorNum, selectorCat, catString, selectorTitle ) => {
-        event.preventDefault();
-        
-        selectorNum !=="placeholder" ? setNumQuest(selectorNum) : setNumQuest(10);
-        
-        selectorCat !=="placeholder" ? setQuestionCategory(selectorCat) : setQuestionCategory(0);
-        setCategoryString(catString);
-        setTitle(selectorTitle);
+    const handleNumSelection = (e) => {
+        setNumQuest(e.target.value)
+    }
+
+    const handleCatSelection = (e) => {
+        setQuestionCategory(e.target.value)
+    }
+
+    const handleTitleInput = (e) => {
+        setTitle(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetchData();
+    }
+
+    useEffect(()=>{
 
         const db = getDatabase(app);
         const dbRef = ref(db);
-        const newGame = { 
-            userTitle: title,
-            userCategory: categoryString,
-            userGenGame: trivia,
-        }
-        push(dbRef, newGame)
 
-}
+        onValue(dbRef, (dbGames) => {
+            const dbObj = dbGames.val();
+
+            const arrayOfGames = [];
+
+            for (let key in dbObj) {
+                const gameObj = {
+                    title: dbObj[key],
+                    id: key
+                }
+
+                arrayOfGames.push(gameObj);
+            }
+
+            setSavedGames(arrayOfGames);
+            
+        })
+
+    }, [] )
 
 
-
-    useEffect(()=>{
+    const fetchData = ()=>{
 
         axios({
             url: 'https://opentdb.com/api.php',
@@ -51,16 +73,39 @@ const Main = () => {
             
         }).then((apiData)=>{
             setTrivia(apiData.data.results)
+            console.log(apiData.data.results)
+
+            // We are pushing straight to firebase after our API call. We will need to (maybe) change this if we want to meet our stretch goal of allowing users to select whether they want to save game. 
+            
+            const db = getDatabase(app);
+            const dbRef = ref(db);
+
+            const newGame = { 
+                userTitle: title,
+                userCategory: 
+                    (apiData.data.results[0].category === apiData.data.results[1].category && apiData.data.results[0].category === apiData.data.results[2].category && apiData.data.results[0].category === apiData.data.results[3].category ? apiData.data.results[0].category: 'Random Questions'),
+
+                userGenGame: apiData.data.results,
+            }
+
+            push(dbRef, newGame);
             
         })
 
-    }, [numQuest],[questionCategory])
-
-    console.log(trivia);
+    }
 
     return (
-        <Form 
-        handleSubmit={handleSubmit}  />
+        <>
+            <Form 
+            handleSubmit={handleSubmit}
+            handleNumSelection ={ handleNumSelection }
+            handleCatSelection = { handleCatSelection}
+            handleTitleInput = { handleTitleInput }  
+            titleInput = {title} />
+
+            < Saved 
+            savedGames = {savedGames}/>
+        </>
     )
 }
 
