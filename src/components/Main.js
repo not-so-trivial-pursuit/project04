@@ -3,8 +3,9 @@ import axios from 'axios';
 import app from './Firebase';
 import { useState, useEffect } from 'react';
 import { getDatabase, ref,  onValue, push } from 'firebase/database';
-
+import IndivSavedGames from './IndivSavedGames';
 import Form from './Form';
+import Saved from './Saved';
 
 
 
@@ -104,7 +105,7 @@ const Main = () => {
             handleTitleInput = { handleTitleInput }  
             titleInput = {title} />
 
-            < Saved 
+            < Saved
             savedGames = {savedGames}/>
         </>
     )

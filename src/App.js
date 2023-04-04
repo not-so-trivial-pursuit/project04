@@ -1,6 +1,7 @@
 import './index.scss';
 import Nav from './components/Nav';
 import Main from './components/Main';
+import Form from './components/Form';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Error from './components/Error';
@@ -12,14 +13,15 @@ function App() {
   return (
     <div className="App">
     <Nav />
-    <Main />
+    {/* <Main /> */}
 
       <Routes>
         <Route path='/' element = {<Home />} />
-        <Route path='/main' element = {<Main />} />
+        <Route path='/form' element = {<Form />} />
         <Route path='/footer' element = {<Footer/>} />
         <Route path='*' element = {<Error />} />
       </Routes>
+      <Footer/>
     </div>
 
   );

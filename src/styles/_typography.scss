@@ -1,0 +1,32 @@
+@font-face {
+    font-family: Hagrid;
+    src: url(../assets/hagrid/Hagrid-Regular-trial.ttf);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:  Hagrid, serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  p, a, li, button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    margin: 0;
+  }
+  
+  p {
+    line-height: 1.2rem;
+    letter-spacing: 0.05rem;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+  
+  input, label, textarea, legend {
+    font-family: "Varta", sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    text-transform: uppercase;
+  }
+  
+  label{
+    font-size: clamp(1rem, 2vw, 4rem);
+  }
