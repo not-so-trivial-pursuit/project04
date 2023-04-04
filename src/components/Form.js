@@ -1,31 +1,17 @@
 // Form.js
-import {useState} from 'react';
 
 const Form = (props) => {
 
-    const [ numValue, setNumValue ] = useState(null);
-    const [ catValue, setCatValue] = useState(null);
-    const [ titleValue, setTitleValue ] = useState('');
-
-    const handleNumSelection = (e) => {
-        setNumValue(e.target.value)
-    }
-
-    const handleCatSelection = (e) => {
-        setCatValue(e.target.value);
-    }
-
-    const handleTitleSelection = (e) => {
-        setTitleValue(e.target.value);
-    }
-
+    // ERROR HANDLING
+        // currently users are able to submit the form without making any selections. Please revisit!!!
     return(
-        <form action="" onSubmit={(e) => {
-            props.handleSubmit(e, numValue, catValue, titleValue)
-        }}>
+        <form action="" onSubmit={props.handleSubmit}>
             <label htmlFor="category"></label>
-            <select name="" id="category" onChange={handleCatSelection}>
-                <option value='Placeholder' disabled>Category</option>
+            <select name="" id="category" onChange={props.handleCatSelection} required>
+                
+                {/* ***** Fix selected Error when reffering to defaultValue or Value in console log  ****** */}
+                <option value='Placeholder' disabled selected>Category</option>
+                <option value="0">Random Game</option>
                 <option value="9">General Knowledge</option>
                 <option value="10">Books</option>
                 <option value="11">Film</option>
@@ -53,8 +39,8 @@ const Form = (props) => {
             </select>
 
             <label htmlFor="numbers"></label>
-            <select name="" id="numbers" onChange={handleNumSelection}>
-                <option value='Placeholder' disabled></option>
+            <select name="" id="numbers" onChange={props.handleNumSelection}required>
+                <option value='Placeholder' disabled selected>Number</option>
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
@@ -64,7 +50,7 @@ const Form = (props) => {
             </select>
 
             <label htmlFor="gameTitle"></label>
-            <input type="text" id='gameTitle' required onChange={handleTitleSelection} placeholder='Name the game' />
+            <input type="text" id='gameTitle' required onChange={props.handleTitleInput} value={props.titleInput}placeholder='Name the game' />
 
             <button>Game On</button>
 
