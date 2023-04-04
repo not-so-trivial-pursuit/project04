@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 import Nav from './components/Nav';
 import Main from './components/Main';
 import Home from './components/Home';

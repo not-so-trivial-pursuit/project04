@@ -6,8 +6,6 @@ const Form = (props) => {
     const [ numValue, setNumValue ] = useState(null);
     const [ catValue, setCatValue] = useState(null);
     const [ titleValue, setTitleValue ] = useState('');
-    const [ catStringName, setCatStringName] = useState('');
-    console.log(catStringName);
 
     const handleNumSelection = (e) => {
         setNumValue(e.target.value)
@@ -15,22 +13,21 @@ const Form = (props) => {
 
     const handleCatSelection = (e) => {
         setCatValue(e.target.value);
-        setCatStringName(e.target.className);
-        console.log(e.target)
     }
+
     const handleTitleSelection = (e) => {
         setTitleValue(e.target.value);
     }
 
     return(
         <form action="" onSubmit={(e) => {
-            props.handleSubmit(e, numValue, catValue, catStringName, titleValue)
+            props.handleSubmit(e, numValue, catValue, titleValue)
         }}>
             <label htmlFor="category"></label>
             <select name="" id="category" onChange={handleCatSelection}>
-                <option value='Placeholder' disabled></option>
+                <option value='Placeholder' disabled>Category</option>
                 <option value="9">General Knowledge</option>
-                <option value="10" className="books">Books</option>
+                <option value="10">Books</option>
                 <option value="11">Film</option>
                 <option value="12">Music</option>
                 <option value="13">Musical & Theatre</option>

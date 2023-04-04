@@ -1,0 +1,42 @@
+html {
+    background-color: #f3eae3;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  figure {
+    margin: 0;
+  }
+  
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 85%;
+  }
+  
+  .flexContainer {
+    display: flex;
+  }
