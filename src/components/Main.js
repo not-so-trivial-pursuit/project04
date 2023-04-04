@@ -2,6 +2,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Form from './Form';
+import app from './Firebase';
+import { getDatabase, ref,  onValue, push } from 'firebase/database';
 
 
 
@@ -11,16 +13,29 @@ const Main = () => {
     const [ numQuest, setNumQuest ] = useState(10);
     const [ questionCategory, setQuestionCategory ] = useState(0);
     const [ title, setTitle ] = useState('');
+    const [ categoryString, setCategoryString ] = useState('');
+    
 
-    const handleSubmit = (event, selectorNum, selectorCat, selectorTitle ) => {
+
+    const handleSubmit = (event, selectorNum, selectorCat, catString, selectorTitle ) => {
         event.preventDefault();
         
         selectorNum !=="placeholder" ? setNumQuest(selectorNum) : setNumQuest(10);
         
         selectorCat !=="placeholder" ? setQuestionCategory(selectorCat) : setQuestionCategory(0);
-
+        setCategoryString(catString);
         setTitle(selectorTitle);
-    }
+
+        const db = getDatabase(app);
+        const dbRef = ref(db);
+        const newGame = { 
+            userTitle: title,
+            userCategory: categoryString,
+            userGenGame: trivia,
+        }
+        push(dbRef, newGame)
+
+}
 
 
 
