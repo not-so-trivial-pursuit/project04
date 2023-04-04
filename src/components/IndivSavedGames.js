@@ -1,8 +1,15 @@
 // IndivSavedGames.js
 
-const IndivSavedGames = () => {
+
+const IndivSavedGames = (props) => {
+
+
+console.log(props.savedGames);
+
     return (
-        <>hello</>
+        <div>
+
+        </div>
     )
 }
 
