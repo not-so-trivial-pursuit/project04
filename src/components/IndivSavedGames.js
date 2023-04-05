@@ -3,9 +3,6 @@
 
 const IndivSavedGames = (props) => {
 
-
-console.log(props.savedGames);
-
     return (
         <div>
 

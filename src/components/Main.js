@@ -3,9 +3,11 @@ import axios from 'axios';
 import app from './Firebase';
 import { useState, useEffect } from 'react';
 import { getDatabase, ref,  onValue, push } from 'firebase/database';
-import Saved from './Saved';
+
 import Form from './Form';
-import IndivSavedGames from './IndivSavedGames';
+import CurrentGame from './CurrentGame';
+import Saved from './Saved';
+
 
 
 const Main = () => {
@@ -16,7 +18,6 @@ const Main = () => {
     const [ title, setTitle ] = useState('');
 
     const [ savedGames, setSavedGames ] = useState([]);
-    console.log(savedGames)
 
     const handleNumSelection = (e) => {
         setNumQuest(e.target.value)
@@ -74,7 +75,7 @@ const Main = () => {
             
         }).then((apiData)=>{
             setTrivia(apiData.data.results)
-            console.log(apiData.data.results)
+        
 
             // We are pushing straight to firebase after our API call. We will need to (maybe) change this if we want to meet our stretch goal of allowing users to select whether they want to save game. 
             
@@ -104,10 +105,10 @@ const Main = () => {
             handleTitleInput = { handleTitleInput }  
             titleInput = {title} />
 
-            < Saved
+            <Saved 
             savedGames = {savedGames}/>
 
-            < IndivSavedGames savedGames={savedGames} />
+            <CurrentGame playerSelectTrivia = {trivia} />
         </>
     )
 }
