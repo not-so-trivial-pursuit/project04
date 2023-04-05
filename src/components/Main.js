@@ -107,7 +107,9 @@ const Main = () => {
             < Saved 
             savedGames = {savedGames}/>
 
-            < IndivSavedGames savedGames={savedGames} />
+            < IndivSavedGames 
+            savedGames={savedGames}
+            />
         </>
     )
 }

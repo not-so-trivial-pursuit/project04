@@ -4,21 +4,21 @@ import { Link, useNavigate } from 'react-router-dom'
 import icon from '../assets/icon.png'
 
 
+
 const Saved = (props) => {
     const navigate = useNavigate();
-
     
-
     return (
+        
         <aside>
             <h4>Choose from one of the saved games!</h4>
 
             <ul>
                 {
                     props.savedGames.map((indivGame)=>{
-                        console.log(indivGame);
+
                         return <li key={indivGame.id}>
-                            <Link to={`/indivSavedGames/${indivGame.id}`}>
+                            <Link to={`/${indivGame.id}`}>
                                 <span className='savedIcon'>
                                     <img
                                         src={icon}
@@ -33,10 +33,12 @@ const Saved = (props) => {
                     })
                 }
             </ul>
-
-            
         </aside>
+
+
+        
     )
 }
+
 
 export default Saved;
