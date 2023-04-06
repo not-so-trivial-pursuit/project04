@@ -1,11 +1,25 @@
 nav{
+    padding: 20px;
     .logo{
         display: flex;
         figure{
-            flex-basis: 5%;
+            flex-basis: 8%;
         }
-        h3{
+        p{
+            color:  #577F90;
+            letter-spacing: 0.1px;
+            font-weight: bold;
+            padding: 13px 0 0 10px;
             flex-basis: 80%;
+            .logoTop{
+                display: block;
+            }
+            .logoBottom{
+                padding-left: 30px;
+            }
+        }
+        p:visited{
+            color:  #577F90;
         }
     }
 }
