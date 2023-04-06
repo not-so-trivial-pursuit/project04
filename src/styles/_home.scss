@@ -4,7 +4,8 @@
         display: flex;
     }   
     .homeLeft{
-        flex-basis: 60%;
+        flex-basis: 55%;
+        padding-right: 5%;
         h1{
             font-weight: lighter;
             text-align: center;
@@ -32,7 +33,18 @@
         background-color:#f3eae3;
         }
     }
-    .saved{
+    .homeRight{
         flex-basis: 40%;
+        position: relative;
+        top: -150px;
+        h2{
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            padding-bottom: 10px;
+        }
+        .saved{
+            height: 600px;
+            overflow-y: scroll;
+        }
+
     }
 }

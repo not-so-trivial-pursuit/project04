@@ -1,28 +1,17 @@
 // Saved.js
 import app from "./Firebase";
-import { getDatabase, ref, onValue, push } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
-import { Link, useNavigate, Routes, Route } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import icon from '../assets/icon.png'
-import IndivSavedGames from "./IndivSavedGames";
+
 
 
 
 const Saved = () => {
     
     const navigate = useNavigate();
-    
     const [savedGames, setSavedGames] = useState([]);
-
-    // Questions:
-    // console.log(props.savedGames.originalData);
-    // Answers:
-    // console.log(props.savedGames.shuffledData);
-    // Array of game objects from firebase:
-    console.log(savedGames);
-
-
-
 
     useEffect(() => {
         const db = getDatabase(app);
@@ -40,7 +29,6 @@ const Saved = () => {
                     id: key,
                 };
                 arrayOfGames.push(gameObj);
-                
             }
             setSavedGames(arrayOfGames);
         });
@@ -49,10 +37,7 @@ const Saved = () => {
     
 
     return (
-        
         <aside>
-            <h4>Choose from one of the saved games!</h4>
-
             <ul>
                 {
                     savedGames.map((indivGame)=>{
@@ -81,6 +66,5 @@ const Saved = () => {
         
     )
 }
-
 
 export default Saved;

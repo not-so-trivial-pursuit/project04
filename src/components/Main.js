@@ -1,13 +1,11 @@
 // Main.js
 import axios from "axios";
 import app from "./Firebase";
-import { useState, useEffect } from "react";
-import { getDatabase, ref, onValue, push } from "firebase/database";
+import { useState} from "react";
+import { getDatabase, ref, push } from "firebase/database";
 
 import Form from "./Form";
 import CurrentGame from "./CurrentGame";
-import Saved from "./Saved";
-import IndivSavedGames from "./IndivSavedGames";
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -33,7 +31,6 @@ const Main = () => {
   const [questionCategory, setQuestionCategory] = useState(0);
   const [title, setTitle] = useState("");
 
-  // const [savedGames, setSavedGames] = useState([]);
 
   const handleNumSelection = (e) => {
     setNumQuest(e.target.value);
@@ -52,30 +49,6 @@ const Main = () => {
     fetchData();
   };
 
-  // useEffect(() => {
-  //   const db = getDatabase(app);
-  //   const dbRef = ref(db);
-
-  //   onValue(dbRef, (dbGames) => {
-  //     const dbObj = dbGames.val();
-
-  //     const arrayOfGames = [];
-
-  //     for (let key in dbObj) {
-  //       const gameObj = {
-  //         title: dbObj[key],
-  //         id: key,
-  //       };
-
-  //       arrayOfGames.push(gameObj);
-  //     }
-
-  //     setSavedGames(arrayOfGames);
-  //   });
-  // }, []);
-
-  //   for(let key in dbObj){
-
   const fetchData = () => {
     axios({
       url: "https://opentdb.com/api.php",
@@ -85,7 +58,6 @@ const Main = () => {
         type: "multiple",
       },
     }).then((apiData) => {
-      // console.log(apiData)
 
       const shuffledArray = apiData.data.results.map((trivia) => {
         let myArray = [...trivia.incorrect_answers];
@@ -103,9 +75,6 @@ const Main = () => {
       setTrivia(triviaData);
 
       console.log(trivia);
-
-      // setTrivia(apiData.data.results)
-      // console.log(apiData.data.results)
 
       // We are pushing straight to firebase after our API call. We will need to (maybe) change this if we want to meet our stretch goal of allowing users to select whether they want to save game.
 
@@ -140,10 +109,7 @@ const Main = () => {
         titleInput={title}
       />
 
-      <CurrentGame playerSelectTrivia={trivia} title={title} />
-
-      {/* < Saved /> */}
-      
+      <CurrentGame playerSelectTrivia={trivia} title={title} />      
     </>
     )
 }
