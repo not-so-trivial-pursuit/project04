@@ -16,7 +16,7 @@ const Saved = (props) => {
             <ul>
                 {
                     props.savedGames.map((indivGame)=>{
-                        console.log(indivGame);
+                        // console.log(indivGame);
                         return <li key={indivGame.id}>
                             <Link to={`/indivSavedGames/${indivGame.id}`}>
                                 <span className='savedIcon'>
