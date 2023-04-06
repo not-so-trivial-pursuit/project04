@@ -5,7 +5,7 @@ const Form = (props) => {
     // ERROR HANDLING
         // currently users are able to submit the form without making any selections. Please revisit!!!
     return(
-        <form action="" onSubmit={props.handleSubmit}>
+        <form action="" onSubmit={(e)=>{props.handleSubmit(e)}}>
             <label htmlFor="category"></label>
             <select name="" id="category" onChange={props.handleCatSelection} required>
                 
