@@ -19,15 +19,15 @@ function App() {
     <Main />
 
       <Routes>
+
         <Route path='/' element = {<Home />} />
         <Route path='/form' element = {<Form />} />
         <Route path='/saved' element = {<Saved />} />
-        <Route path='/individualSavedGame' element = {<IndivSavedGames />} />
+        <Route path='/individualSavedGame/:id' element = {<IndivSavedGames />} />
         <Route path='/newGame' element = {<CurrentGame />} />
-        <Route path='/footer' element = {<Footer/>} />
         <Route path='*' element = {<Error />} />
       </Routes>
-
+      {/* <Saved /> */}
     <Footer/>
     </div>
 
