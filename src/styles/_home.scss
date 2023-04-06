@@ -40,10 +40,16 @@
         h2{
             font-size: clamp(0.8rem, 2vw, 1rem);
             padding-bottom: 10px;
+            text-align: center;
         }
         .saved{
             height: 600px;
             overflow-y: scroll;
+            text-align: center;
+            .savedTitle{
+                font-weight: bold;
+                text-transform: uppercase;
+            }
         }
 
     }
