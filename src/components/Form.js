@@ -1,13 +1,9 @@
 // Form.js
 import { Link } from "react-router-dom";
-import { useMain } from "./Main";
 
-const Form = ({children}) => {
+const Form = (props) => {
   // ERROR HANDLING
   // currently users are able to submit the form without making any selections. Please revisit!!!
-
-  const {handleCatSelection,handleSubmit, handleNumSelection, handleTitleInput, title } = useMain();
-
   return (
     <section className="form">
       <div className="wrapper circle">
@@ -17,7 +13,7 @@ const Form = ({children}) => {
         <form
           action=""
           onSubmit={(e) => {
-            handleSubmit(e);
+            props.handleSubmit(e);
           }}
         >
           <div className="categorySelect">
@@ -25,7 +21,7 @@ const Form = ({children}) => {
             <select
               name=""
               id="category"
-              onChange={handleCatSelection}
+              onChange={props.handleCatSelection}
               required
             >
               {/* ***** Fix selected Error when refering to defaultValue or Value in console log  ****** */}
@@ -65,7 +61,7 @@ const Form = ({children}) => {
             <select
               name=""
               id="numbers"
-              onChange={handleNumSelection}
+              onChange={props.handleNumSelection}
               required
             >
               <option value="Placeholder" disabled selected>
@@ -87,8 +83,8 @@ const Form = ({children}) => {
             type="text"
             id="gameTitle"
             required
-            onChange={handleTitleInput}
-            value={title}
+            onChange={props.handleTitleInput}
+            value={props.titleInput}
             className ="nameGame"
             placeholder="Name the game"
           />

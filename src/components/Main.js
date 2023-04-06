@@ -1,11 +1,12 @@
 // Main.js
 import axios from "axios";
 import app from "./Firebase";
-import { useState, useEffect, useContext, createContext } from "react";
+import { useState, useEffect } from "react";
 import { getDatabase, ref, onValue, push } from "firebase/database";
 
-
-const MainContext = createContext();
+import Form from "./Form";
+import CurrentGame from "./CurrentGame";
+import Saved from "./Saved";
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -25,16 +26,14 @@ const shuffle = (array) => {
 
 let triviaData = {};
 
-export function Main({children}) {
-
+const Main = () => {
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
-  console.log(trivia)
   const [numQuest, setNumQuest] = useState(10);
   const [questionCategory, setQuestionCategory] = useState(0);
   const [title, setTitle] = useState("");
+
   const [savedGames, setSavedGames] = useState([]);
-  const [showCurrentGame, setShowCurrentGame] = useState(false)
- 
+
   const handleNumSelection = (e) => {
     setNumQuest(e.target.value);
   };
@@ -50,7 +49,6 @@ export function Main({children}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchData();
-    setShowCurrentGame(true);
   };
 
   useEffect(() => {
@@ -87,7 +85,6 @@ export function Main({children}) {
       },
     }).then((apiData) => {
       // console.log(apiData)
-      console.log(apiData.data.results)
 
       const shuffledArray = apiData.data.results.map((trivia) => {
         let myArray = [...trivia.incorrect_answers];
@@ -101,10 +98,10 @@ export function Main({children}) {
         originalData: apiData.data.results,
       };
 
-      // console.log(triviaData);
+      console.log(triviaData);
       setTrivia(triviaData);
 
-      // console.log(trivia);
+      console.log(trivia);
 
       // setTrivia(apiData.data.results)
       // console.log(apiData.data.results)
@@ -133,24 +130,20 @@ export function Main({children}) {
   };
 
   return (
-       <MainContext.Provider 
-        value ={{
-            handleSubmit,
-            handleNumSelection, 
-            handleCatSelection,
-            handleTitleInput,
-            title,
-            savedGames,
-            trivia,
-            showCurrentGame
-        }}
-        >
-          {children}
-        </MainContext.Provider>
+    <>
+      <Form
+        handleSubmit={handleSubmit}
+        handleNumSelection={handleNumSelection}
+        handleCatSelection={handleCatSelection}
+        handleTitleInput={handleTitleInput}
+        titleInput={title}
+      />
+
+      <CurrentGame playerSelectTrivia={trivia} title={title} />
+
+      <Saved savedGames={savedGames} />
+    </>
   );
 };
 
-
-export function useMain() {
-    return useContext(MainContext);
-}
+export default Main;

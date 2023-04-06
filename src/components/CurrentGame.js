@@ -1,13 +1,8 @@
 // CurrentGame.js
 import { useState } from "react";
-import { useMain } from "./Main";
+import { Link } from "react-router-dom";
 
-
-// const CurrentGame = (props) => {
-const CurrentGame = ({children}) => {
-
-  const {trivia, title } = useMain();
-
+const CurrentGame = (props) => {
   const [userSelection, setUserSelection] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
 
@@ -52,14 +47,14 @@ const CurrentGame = ({children}) => {
       <div className="wrapper background">
         <div className="currentGameContent">
           <ul>
-            <h2>{title}</h2>
-            {trivia.shuffledData.map((trivia, i) => {
+            <h2>{props.title}</h2>
+            {props.playerSelectTrivia.shuffledData.map((trivia, i) => {
               return (
                 <li>
                   <form onSubmit={handleSubmit}>
                     <fieldset onChange={handleSelection}>
                       <legend>
-                        {trivia.originalData[i].question
+                        {props.playerSelectTrivia.originalData[i].question
                           .replace(/&quot;/g, '"')
                           .replace(/&#039;/g, "'")
                           .replace(/&rsquo;/g, "'")}

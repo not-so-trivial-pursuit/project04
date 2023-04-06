@@ -2,12 +2,9 @@
 
 import { Link, useNavigate } from 'react-router-dom'
 import icon from '../assets/icon.png'
-import { useMain } from './Main';
 
 
-const Saved = ({children}) => {
-    const {savedGames} = useMain();
-
+const Saved = (props) => {
     const navigate = useNavigate();
 
     
@@ -18,7 +15,7 @@ const Saved = ({children}) => {
 
             <ul>
                 {
-                    savedGames.map((indivGame)=>{
+                    props.savedGames.map((indivGame)=>{
                         console.log(indivGame);
                         return <li key={indivGame.id}>
                             <Link to={`/indivSavedGames/${indivGame.id}`}>
