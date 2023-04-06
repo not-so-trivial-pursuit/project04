@@ -1,10 +1,9 @@
 import './index.scss';
 import Nav from './components/Nav';
-import Main from './components/Main' 
-import Form from './components/Form';
+import {Main} from './components/Main' 
 import Saved from './components/Saved';
 import IndivSavedGames from './components/IndivSavedGames';
-import CurrentGame from './components/CurrentGame'
+import NavigateTo from './components/NavigateTo';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Error from './components/Error';
@@ -15,19 +14,17 @@ function App() {
   return (
     <div className="App">
     <Nav />
-    <Home />
-    <Main />
-
+    {/* <Home /> */}
+    <Main >
       <Routes>
         <Route path='/' element = {<Home />} />
-        <Route path='/form' element = {<Form />} />
+        <Route path='/game' element = {<NavigateTo />} />
         <Route path='/saved' element = {<Saved />} />
         <Route path='/individualSavedGame' element = {<IndivSavedGames />} />
-        <Route path='/newGame' element = {<CurrentGame />} />
         <Route path='/footer' element = {<Footer/>} />
         <Route path='*' element = {<Error />} />
       </Routes>
-
+    </Main>
     <Footer/>
     </div>
 
