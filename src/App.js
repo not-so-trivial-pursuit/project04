@@ -1,6 +1,7 @@
 import './index.scss';
 import Nav from './components/Nav';
-import Main from './components/Main' 
+import Main from './components/Main';
+// import {Main} from './components/Main';
 import Form from './components/Form';
 import Saved from './components/Saved';
 import IndivSavedGames from './components/IndivSavedGames';
@@ -9,7 +10,7 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Error from './components/Error';
 
-import {Routes, Route, Link } from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
   return (

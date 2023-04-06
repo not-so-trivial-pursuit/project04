@@ -1,20 +1,23 @@
 // Main.js
 import axios from 'axios';
 import app from './Firebase';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext, createContext } from 'react';
 import { getDatabase, ref,  onValue, push } from 'firebase/database';
-
 import Form from './Form';
-import CurrentGame from './CurrentGame';
 import Saved from './Saved';
+import CurrentGame from './CurrentGame';
 
-
+// const MainContext = createContext();
 
 const Main = () => {
+// export function Main({children}){
     
     const [ trivia, setTrivia ] = useState([]);
+    console.log(trivia)
     const [ numQuest, setNumQuest ] = useState(10);
+    console.log(numQuest)
     const [ questionCategory, setQuestionCategory ] = useState(0);
+    console.log(questionCategory)
     const [ title, setTitle ] = useState('');
 
     const [ savedGames, setSavedGames ] = useState([]);
@@ -97,20 +100,40 @@ const Main = () => {
     }
 
     return (
+        // <MainContext.Provider 
+        // value ={{
+        //     handleSubmit,
+        //     handleNumSelection, 
+        //     handleCatSelection,
+        //     handleTitleInput,
+        //     title,
+        //     savedGames,
+        //     trivia
+        // }}
+        // >
+        // <Form/>
+        // <Saved/> 
+        // <CurrentGame/>
+        // {/* {children} */}
+        // </MainContext.Provider>
         <>
-            <Form 
-            handleSubmit={handleSubmit}
-            handleNumSelection ={ handleNumSelection }
-            handleCatSelection = { handleCatSelection}
-            handleTitleInput = { handleTitleInput }  
-            titleInput = {title} />
+        <Form 
+        handleSubmit={handleSubmit}
+        handleNumSelection ={ handleNumSelection }
+        handleCatSelection = { handleCatSelection}
+        handleTitleInput = { handleTitleInput }  
+        titleInput = {title} />
 
-            <Saved 
-            savedGames = {savedGames}/>
+        <Saved 
+        savedGames = {savedGames}/>
 
-            <CurrentGame playerSelectTrivia = {trivia} />
-        </>
+        <CurrentGame playerSelectTrivia = {trivia} />
+    </>
     )
 }
+
+// export function useMain() {
+//     return useContext(MainContext);
+// }
 
 export default Main;

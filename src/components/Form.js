@@ -1,6 +1,9 @@
 // Form.js
+import { useMain } from "./Main";
 
 const Form = (props) => {
+
+    // const {handleCatSelection,handleSubmit, handleNumSelection, handleTitleInput, title } = useMain();
 
     // ERROR HANDLING
         // currently users are able to submit the form without making any selections. Please revisit!!!
