@@ -5,6 +5,7 @@ const Form = (props) => {
   // ERROR HANDLING
   // currently users are able to submit the form without making any selections. Please revisit!!!
   return (
+    
     <section className="form">
       <div className="wrapper circle">
         <div className="formContent">

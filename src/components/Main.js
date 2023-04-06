@@ -7,6 +7,7 @@ import { getDatabase, ref, onValue, push } from "firebase/database";
 import Form from "./Form";
 import CurrentGame from "./CurrentGame";
 import Saved from "./Saved";
+import IndivSavedGames from "./IndivSavedGames";
 
 const shuffle = (array) => {
   let currentIndex = array.length,
@@ -32,7 +33,7 @@ const Main = () => {
   const [questionCategory, setQuestionCategory] = useState(0);
   const [title, setTitle] = useState("");
 
-  const [savedGames, setSavedGames] = useState([]);
+  // const [savedGames, setSavedGames] = useState([]);
 
   const handleNumSelection = (e) => {
     setNumQuest(e.target.value);
@@ -51,27 +52,27 @@ const Main = () => {
     fetchData();
   };
 
-  useEffect(() => {
-    const db = getDatabase(app);
-    const dbRef = ref(db);
+  // useEffect(() => {
+  //   const db = getDatabase(app);
+  //   const dbRef = ref(db);
 
-    onValue(dbRef, (dbGames) => {
-      const dbObj = dbGames.val();
+  //   onValue(dbRef, (dbGames) => {
+  //     const dbObj = dbGames.val();
 
-      const arrayOfGames = [];
+  //     const arrayOfGames = [];
 
-      for (let key in dbObj) {
-        const gameObj = {
-          title: dbObj[key],
-          id: key,
-        };
+  //     for (let key in dbObj) {
+  //       const gameObj = {
+  //         title: dbObj[key],
+  //         id: key,
+  //       };
 
-        arrayOfGames.push(gameObj);
-      }
+  //       arrayOfGames.push(gameObj);
+  //     }
 
-      setSavedGames(arrayOfGames);
-    });
-  }, []);
+  //     setSavedGames(arrayOfGames);
+  //   });
+  // }, []);
 
   //   for(let key in dbObj){
 
@@ -141,10 +142,9 @@ const Main = () => {
 
       <CurrentGame playerSelectTrivia={trivia} title={title} />
 
-            < IndivSavedGames 
-            savedGames={savedGames}
-            />
-        </>
+      {/* < Saved /> */}
+      
+    </>
     )
 }
 

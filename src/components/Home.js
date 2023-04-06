@@ -11,7 +11,7 @@ const Home = () => {
           </h1>
           <div className="links">
           <Link to="/form"> Create a game</Link>
-          {/* <Link to="/saved"> Saved Games </Link> */}
+          <Link to="/saved"> Saved Games </Link>
           </div>
         </div>
       </div>
