@@ -1,7 +1,9 @@
 const Footer = () => {
-    return (
-        <p>footer</p>
-    )
-}
+  return (
+    <footer>
+      <p>Create by Denny Selda Pedram & Kenzie</p>
+    </footer>
+  );
+};
 
 export default Footer;

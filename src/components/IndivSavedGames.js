@@ -1,8 +1,12 @@
 // IndivSavedGames.js
 
-const IndivSavedGames = () => {
+
+const IndivSavedGames = (props) => {
+
     return (
-        <>hello</>
+        <div>
+
+        </div>
     )
 }
 

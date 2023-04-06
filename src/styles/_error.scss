@@ -1,0 +1,17 @@
+.error{
+    text-align: center;
+    .flexError{
+        display: flex;
+        height: 90vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h2{
+        font-size: clamp(5rem, 2vw, 7rem);
+    }
+    p{
+        color: #86C2AE;
+        padding: 30px;
+    }
+}

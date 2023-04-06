@@ -9,16 +9,15 @@ const Nav = () => {
     return(
         <nav>
             <div className="wrapper">
-                <Link>
+                <Link to="/">
                     <div className='logo'>
                         {/* look for semantic */}
                         <figure>
                             <img src={logo} alt="not so trivial pursuit logo" />
                         </figure>
-                        <h3>
-                            <span className='logoTop'>Not So Trivial</span>
-                            <span>Pursuit</span>
-                        </h3>
+                        <p>
+                            <span className='logoTop'>Not So Trivial</span>  <span className='logoBottom'>Pursuit</span>
+                        </p>
 
                     </div>
                 </Link>

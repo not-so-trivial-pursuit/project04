@@ -1,0 +1,80 @@
+.form{
+    background-image: url(/assets/background.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // height: 100vh;
+}
+
+.circle{
+    background-color: #f3eae3;
+    border: 15px solid #92c0af;
+    border-radius: 50%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContent{
+    padding: 80px 0;
+    // width: 85%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-weight: lighter;
+        font-size: clamp(2.5rem, 2vw, 3.5rem);
+        width: 65%;
+        padding-bottom: 50px;
+    }
+    .categorySelect{
+        margin: 20px 0;
+        label{
+            margin-right: 15px;
+        }
+        select{
+            color: #577F90;
+        }
+    }
+    .numberSelect{
+        margin: 20px 0;
+        label{
+            margin-right: 15px;
+        }
+        select{
+            color: #577F90;
+        }
+    }
+    .nameGame{
+        background-color: #577F90;
+        color:#f3eae3;
+        padding: 15px 20px;
+        width: 100%;
+        border: #577F90;
+        display: block;
+        text-align: center;
+        margin: 30px 0;
+    }
+    button{
+        margin: 30px 0;
+        color: #f3eae3;
+        background-color: #F0917A;
+        border: 2px solid #F0917A;
+        padding: 15px 25px;
+        border-radius: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+    }
+    button:hover,
+    button:focus{
+    color: #F0917A;
+    background-color:#f3eae3;
+    }
+
+}
+
+// add a fun hover tab effect to the buttons 
