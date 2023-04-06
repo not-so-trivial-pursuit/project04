@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const CurrentGame = (props) => {
   const [userSelection, setUserSelection] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
@@ -42,7 +41,6 @@ const CurrentGame = (props) => {
     }
     return array;
   };
-
 
   return (
     <section className="currentGame">
@@ -99,10 +97,9 @@ const CurrentGame = (props) => {
                         </div>
                       </div>
                     </fieldset>
-
-                    <button>
-                            Submit
-                    </button>
+                    <div className="gameButton">
+                      <button>Submit</button>
+                    </div>
                   </form>
                 </li>
               );
@@ -115,5 +112,4 @@ const CurrentGame = (props) => {
 };
 export default CurrentGame;
 
-
-// clean up code add in some error handleing add in the change state for user selection 
+// clean up code add in some error handleing add in the change state for user selection
