@@ -39,6 +39,7 @@ let valueSet = false
 
 const IndivSavedGames = () => {
   const [games, setGames] = useState([]);
+  const [ ansArray, setAnsArray ] = useState([]);
 
   const params = useParams();
 
@@ -91,18 +92,30 @@ const IndivSavedGames = () => {
       let incorrAns = shuffleSaved(c.incorrect_answers);
       return incorrAns;
     });
-
+     
+    
     valueSet = true
-  }
+}
 
-  return (
+let mySavedArray = () => {
+
+    let myArray = [...selectedIncorrectAns];
+        myArray.push(selectedCorrectAns);
+
+    shuffleSaved(myArray);
+    setAnsArray(myArray);
+}
+    mySavedArray();
+   console.log(ansArray);
+   
+return (
     <section className="currentGame">
     <div className="wrapper background">
       <div className="currentGameContent">
         <ul>
           <h2>{singleGame.title}</h2>
           {selectedGame.map((trivia, i) => {
-            console.log(trivia)
+            // console.log(trivia)
             return (
               <SavedQuestion 
               triviaData ={trivia}

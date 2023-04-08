@@ -22,8 +22,8 @@ const CurrentGame = (props) => {
     correctAns.correct_answer
   )
 
-  console.log(props.playerSelectTrivia.originalData)
-
+  // s
+  console.log(props.playerSelectTrivia.shuffledData)
   return (
     <section className="currentGame">
       <div className="wrapper background">
