@@ -1,183 +1,183 @@
-.currentGame{
-    background-image: url(/assets/background.png);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
+.currentGame {
+  background-image: url(/assets/background.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.background{
-    background-color: #f3eae3;
-    border-right: 15px solid #92c0af;
-    border-left: 15px solid #92c0af;
+.background {
+  background-color: #f3eae3;
+  border-right: 15px solid #92c0af;
+  border-left: 15px solid #92c0af;
 }
 
-.currentGameContent{
-    padding: 50px 20px;
-    h2{
-        text-align: center;
-        padding: 20px 0;
-        font-weight: lighter;
-        font-size: clamp(2.5rem, 2vw, 3.5rem);
+.currentGameContent {
+  padding: 50px 20px;
+  h2 {
+    text-align: center;
+    padding: 20px 0;
+    font-weight: lighter;
+    font-size: clamp(2.5rem, 2vw, 3.5rem);
+  }
+  legend {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    padding: 35px 0;
+  }
+  .answers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+  .q1 {
+    display: flex;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin: 10px 0;
+    input {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      opacity: 0;
     }
-    legend{
-        font-size: clamp(1rem, 2vw, 1.5rem);
-        padding: 35px 0;
+    label {
+      color: #f3eae3;
+      background-color: #577f90;
+      border: 3px solid #f3eae3;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
     }
-    .answers{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        font-size: clamp(0.8rem, 2vw, 1rem);
+    input:checked + label {
+      background-color: #577f90;
+      color: #f3eae3;
+      border: 2px solid #f3eae3;
     }
-    .q1 {
-        display: flex;
-        position: relative;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        cursor: pointer;
-        margin: 10px 0;
-        input {
-            position: absolute;
-            width: 90%;
-            height: 90%;
-            opacity: 0;
-          }
-        label{
-            color: #f3eae3;
-            background-color: #577F90;
-            border: 3px solid #f3eae3;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 50px;
-        }
-        input:checked + label{
-            background-color:#577F90;
-            color: #f3eae3;
-            border: 2px solid #f3eae3;
-        }
-        input:focus + label,
-        input:hover + label{
-            color: #577F90;
-            background-color: #f3eae3;
-            border: 3px solid #577F90;
-        }
-      }
-      .q2 {
-        display: flex;
-        position: relative;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        cursor: pointer;
-        margin: 10px 0;
-        input {
-            position: absolute;
-            width: 90%;
-            height: 90%;
-            opacity: 0;
-          }
-        label{
-            color: #f3eae3;
-            background-color: #577F90;
-            border: 3px solid #f3eae3;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 50px;
-        }
-        input:checked + label{
-            background-color:#577F90;
-            color: #f3eae3;
-            border: 2px solid #f3eae3;
-        }
-        input:focus + label,
-        input:hover + label{
-            color: #577F90;
-            background-color: #f3eae3;
-            border: 3px solid #577F90;
-        }
-      }
-      .q3 {
-        display: flex;
-        position: relative;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        cursor: pointer;
-        margin: 10px 0;
-        input {
-            position: absolute;
-            width: 90%;
-            height: 90%;
-            opacity: 0;
-          }
-        label{
-            color: #f3eae3;
-            background-color: #577F90;
-            border: 3px solid #f3eae3;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 50px;
-        }
-        input:checked + label{
-            background-color:#577F90;
-            color: #f3eae3;
-            border: 2px solid #f3eae3;
-        }
-        input:focus + label,
-        input:hover + label{
-            color: #577F90;
-            background-color: #f3eae3;
-            border: 3px solid #577F90;
-        }
-      }
-      .q4 {
-        display: flex;
-        position: relative;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        cursor: pointer;
-        margin: 10px 0;
-        input {
-            position: absolute;
-            width: 90%;
-            height: 90%;
-            opacity: 0;
-          }
-        label{
-            color: #f3eae3;
-            background-color: #577F90;
-            border: 3px solid #f3eae3;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 50px;
-        }
-        input:checked + label{
-            background-color:#577F90;
-            color: #f3eae3;
-            border: 2px solid #f3eae3;
-        }
-        input:focus + label,
-        input:hover + label{
-            color: #577F90;
-            background-color: #f3eae3;
-            border: 3px solid #577F90;
-        }
-      }
-      .gameButton{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        button{
-            margin: 30px 0;
-            color: #f3eae3;
-            background-color: #F0917A;
-            border: 2px solid #F0917A;
-            padding: 15px 25px;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            cursor: pointer;
-          }
-          button:hover,
-          button:focus{
-          color: #F0917A;
-          background-color:#f3eae3;
-          }
-      }
+    input:focus + label,
+    input:hover + label {
+      color: #577f90;
+      background-color: #f3eae3;
+      border: 3px solid #577f90;
     }
+  }
+  .q2 {
+    display: flex;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin: 10px 0;
+    input {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      opacity: 0;
+    }
+    label {
+      color: #f3eae3;
+      background-color: #577f90;
+      border: 3px solid #f3eae3;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+    }
+    input:checked + label {
+      background-color: #577f90;
+      color: #f3eae3;
+      border: 2px solid #f3eae3;
+    }
+    input:focus + label,
+    input:hover + label {
+      color: #577f90;
+      background-color: #f3eae3;
+      border: 3px solid #577f90;
+    }
+  }
+  .q3 {
+    display: flex;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin: 10px 0;
+    input {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      opacity: 0;
+    }
+    label {
+      color: #f3eae3;
+      background-color: #577f90;
+      border: 3px solid #f3eae3;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+    }
+    input:checked + label {
+      background-color: #577f90;
+      color: #f3eae3;
+      border: 2px solid #f3eae3;
+    }
+    input:focus + label,
+    input:hover + label {
+      color: #577f90;
+      background-color: #f3eae3;
+      border: 3px solid #577f90;
+    }
+  }
+  .q4 {
+    display: flex;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin: 10px 0;
+    input {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      opacity: 0;
+    }
+    label {
+      color: #f3eae3;
+      background-color: #577f90;
+      border: 3px solid #f3eae3;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+    }
+    input:checked + label {
+      background-color: #577f90;
+      color: #f3eae3;
+      border: 2px solid #f3eae3;
+    }
+    input:focus + label,
+    input:hover + label {
+      color: #577f90;
+      background-color: #f3eae3;
+      border: 3px solid #577f90;
+    }
+  }
+  .gameButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 30px 0;
+      color: #f3eae3;
+      background-color: #f0917a;
+      border: 2px solid #f0917a;
+      padding: 15px 25px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    button:hover,
+    button:focus {
+      color: #f0917a;
+      background-color: #f3eae3;
+    }
+  }
+}
 
-// change the hover and focus effects so that it is distinctly different than those of button/links need to have veriation 
-// fix flex on answer inputs should be a bit more predictable what will happen 
+// change the hover and focus effects so that it is distinctly different than those of button/links need to have veriation
+// fix flex on answer inputs should be a bit more predictable what will happen
