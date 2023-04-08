@@ -50,4 +50,4 @@ const CurrentGame = (props) => {
 };
 export default CurrentGame;
 
-// clean up code add in some error handleing add in the change state for user selection
+// clean up code add in some error handling add in the change state for user selection
