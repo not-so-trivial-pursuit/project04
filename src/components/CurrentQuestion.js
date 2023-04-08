@@ -1,5 +1,5 @@
 // CurrentQuestion.js
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 const CurrentQuestion = (props) => {
@@ -19,8 +19,6 @@ const CurrentQuestion = (props) => {
 
         setClickState(nextArray)
         setHasClicked(true)
-
-        console.log(nextArray)
       };
 
 

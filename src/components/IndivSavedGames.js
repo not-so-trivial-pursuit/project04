@@ -27,9 +27,15 @@ const shuffleSaved = (array) => {
       array[currentIndex],
     ];
   }
-  console.log(array);
+  // console.log(array);
   return array;
 };
+
+let selectedGame = [];
+let selectedQuestions = []; 
+let selectedCorrectAns = []; 
+let selectedIncorrectAns = [];
+let valueSet = false
 
 const IndivSavedGames = () => {
   const [games, setGames] = useState([]);
@@ -62,58 +68,55 @@ const IndivSavedGames = () => {
     }
   });
 
-const [ selectedGameState, setSelectedGameState ] = useState([]);
-
-const [ selectedQuestionsState, setSelectedQuestionsState ] = useState([]);
-
-const [ selectedCorrectAnsState, setSelectedCorrectAnsState ] = useState([]);
-
-const [ selectedIncorrectAnsState, setSelectedIncorrectAnsState ] = useState([])
-
-  
   let singleGame = arr.filter((x) => {
     return x !== undefined;
   });
-if(singleGame.length>0){
 
-    let selectedGame = singleGame[0].title.userGenGame;
+
+
+  if (singleGame.length >0 && !valueSet){
+    selectedGame = singleGame[0].title.userGenGame;
+
     
-    console.log(selectedGame);
-  
-    let selectedQuestions = selectedGame.map((i) => {
+    selectedQuestions = selectedGame.map((i) => {
       return i.question;
     });
-    
-  
-    console.log(selectedQuestions);
-  
-    // array of correct answers
-    let selectedCorrectAns = selectedGame.map((c) => {
+
+
+    selectedCorrectAns = selectedGame.map((c) => {
       return c.correct_answer;
     });
     
-    console.log(selectedCorrectAns);
-  
-    // array of incorrect answers
-    let selectedIncorrectAns = selectedGame.map((c) => {
+    selectedIncorrectAns = selectedGame.map((c) => {
       let incorrAns = shuffleSaved(c.incorrect_answers);
       return incorrAns;
     });
-    return(
-    setSelectedGameState(selectedGame) &&
-    setSelectedQuestionsState(selectedQuestions) &&
-    setSelectedCorrectAnsState(selectedCorrectAns) &&
-    setSelectedIncorrectAnsState(selectedIncorrectAns)
-    )
-}
+
+    valueSet = true
+  }
 
   return (
-    <SavedQuestion
-      selectedGame={selectedGameState}
-      selectedQuestions={selectedQuestionsState}
-      selectedCorrectAns={selectedCorrectAnsState}
-      selectedIncorrectAns={selectedIncorrectAnsState}
-    />
+    <section className="currentGame">
+    <div className="wrapper background">
+      <div className="currentGameContent">
+        <ul>
+          <h2>{singleGame.title}</h2>
+          {selectedGame.map((trivia, i) => {
+            console.log(trivia)
+            return (
+              <SavedQuestion 
+              triviaData ={trivia}
+              triviaIndex = {i}
+              question ={selectedQuestions[i]}
+              correctAnswer={selectedCorrectAns[i]}
+              // selectedIncorrectAns={selectedIncorrectAns}
+            />
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  </section>
   );
 };
 

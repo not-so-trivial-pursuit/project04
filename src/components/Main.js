@@ -115,3 +115,7 @@ const Main = () => {
 }
 
 export default Main;
+
+// add loading state
+// have a scroll to situation from form to the current game 
+// add a link at the bottom of current game to game result 
