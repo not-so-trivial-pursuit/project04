@@ -28,7 +28,11 @@
     justify-content: space-around;
     flex-wrap: wrap;
     font-size: clamp(0.8rem, 2vw, 1rem);
+    
   }
+    .correct {
+      background-color: green;
+    }
   .q1 {
     display: flex;
     position: relative;
@@ -49,6 +53,9 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
+                .correct {
+                  background-color: green;
+                }
     input:checked + label {
       background-color: #577f90;
       color: #f3eae3;
@@ -81,6 +88,9 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
+                .correct {
+                  background-color: green;
+                }
     input:checked + label {
       background-color: #577f90;
       color: #f3eae3;
@@ -113,6 +123,9 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
+                .correct {
+                  background-color: green;
+                }
     input:checked + label {
       background-color: #577f90;
       color: #f3eae3;
@@ -145,6 +158,9 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
+                .correct {
+                  background-color: green;
+                }
     input:checked + label {
       background-color: #577f90;
       color: #f3eae3;

@@ -184,6 +184,7 @@ return (
                   triviaData={trivia}
                   triviaIndex={i}
                   correctAnswer={answerBank[i]}
+                  correctArray={answerBank}
                   question={savedTrivia.originalData[i].question}
                 />
               );
