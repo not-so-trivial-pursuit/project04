@@ -7,6 +7,7 @@ import {Routes, Route, Link} from 'react-router-dom'
 import axios from "axios";
 import SavedQuestion from "./SavedQuestion";
 
+
 let triviaData = {};
 
 const shuffleSaved = (array) => {
@@ -190,6 +191,8 @@ return (
               );
             })}
           </ul>
+
+          <Link to='/gameResult'>End Game</Link>
         </div>
       </div>
     </section>
