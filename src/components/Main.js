@@ -31,7 +31,7 @@ const Main = () => {
   const [questionCategory, setQuestionCategory] = useState(0);
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
-  console.log(loading)
+
 
   const handleNumSelection = (e) => {
     setNumQuest(e.target.value);
@@ -73,11 +73,9 @@ const Main = () => {
           shuffledData: shuffledArray,
           originalData: apiData.data.results,
         };
-  
-        console.log(triviaData);
+
         setTrivia(triviaData);
-  
-        console.log(trivia);
+
   
         // We are pushing straight to firebase after our API call. We will need to (maybe) change this if we want to meet our stretch goal of allowing users to select whether they want to save game.
   

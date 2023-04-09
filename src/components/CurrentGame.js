@@ -22,8 +22,6 @@ const CurrentGame = (props) => {
     correctAns.correct_answer
   )
 
-  // s
-  console.log(props.playerSelectTrivia.shuffledData)
   return (
     <section className="currentGame">
       <div className="wrapper background">
@@ -31,7 +29,6 @@ const CurrentGame = (props) => {
           <ul>
             <h2>{props.title}</h2>
             {props.playerSelectTrivia.shuffledData.map((trivia, i) => {
-              console.log(trivia)
               return (
                 <CurrentQuestion 
                 triviaData ={trivia}

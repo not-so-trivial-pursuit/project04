@@ -91,9 +91,7 @@ const SavedQuestion = (props) => {
                 onClick={() => { handleClick(0) }} 
                   className={
                     (hasClicked && props.triviaData[0] === props.correctAnswer ? ' correct' : '') +
-                    
                     (clickState[0] && props.triviaData[0] !== props.correctAnswer ? ' incorrect' : '') + 
-                    // (props.triviaData[0] !== props.correctAnswer && correct === true ? " incorrect" : '') +
                     (props.triviaData[0] === props.correctAnswer && correct === true ? " correct" : '') 
                   }>{props.triviaData[0]}</label>
                 </div>
@@ -110,7 +108,6 @@ const SavedQuestion = (props) => {
                   className={
                     (hasClicked && props.triviaData[1] === props.correctAnswer ? ' correct' : '') + 
                     (clickState[1] && props.triviaData[1] !== props.correctAnswer ? ' incorrect' : '') + 
-                    // (props.triviaData[1] !== props.correctAnswer && correct === true ? " incorrect" : '') +
                     (props.triviaData[1] === props.correctAnswer && correct === true ? " correct" : '') 
                   }>{props.triviaData[1]}</label>
                 </div>

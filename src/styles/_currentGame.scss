@@ -28,7 +28,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     font-size: clamp(0.8rem, 2vw, 1rem);
-    
+    margin-bottom: 20px;
   }
   .q1 {
     display: flex;
@@ -50,25 +50,12 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
-                .correct {
-                  background-color: green;
-                  
-                }
-                .incorrect {
-                  background-color: red;
-                  
-                }
-    // input:checked + label {
-    //   background-color: #577f90;
-    //   color: #f3eae3;
-    //   border: 2px solid #f3eae3;
-    // }
-    // input:focus + label,
-    // input:hover + label {
-    //   color: #577f90;
-    //   background-color: #f3eae3;
-    //   border: 3px solid #577f90;
-    // }
+    .correct {
+      background-color: #92c0af;
+    }
+    .incorrect {
+      background-color: #f0917a;
+    }
   }
   .q2 {
     display: flex;
@@ -90,24 +77,12 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
-                .correct {
-                  background-color: green;
-                }
-                .incorrect {
-                  background-color: red;
-                  
-                }
-    // input:checked + label {
-    //   background-color: #577f90;
-    //   color: #f3eae3;
-    //   border: 2px solid #f3eae3;
-    // }
-    // input:focus + label,
-    // input:hover + label {
-    //   color: #577f90;
-    //   background-color: #f3eae3;
-    //   border: 3px solid #577f90;
-    // }
+    .correct {
+      background-color: #92c0af;
+    }
+    .incorrect {
+      background-color: #f0917a;
+    }
   }
   .q3 {
     display: flex;
@@ -129,24 +104,12 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
-                .correct {
-                  background-color: green;
-                }
-                .incorrect {
-                  background-color: red;
-                  
-                }
-    // input:checked + label {
-    //   background-color: #577f90;
-    //   color: #f3eae3;
-    //   border: 2px solid #f3eae3;
-    // }
-    // input:focus + label,
-    // input:hover + label {
-    //   color: #577f90;
-    //   background-color: #f3eae3;
-    //   border: 3px solid #577f90;
-    // }
+    .correct {
+      background-color: #92c0af;
+    }
+    .incorrect {
+      background-color: #f0917a;
+    }
   }
   .q4 {
     display: flex;
@@ -168,24 +131,12 @@
       padding: 10px 20px;
       border-radius: 50px;
     }
-                .correct {
-                  background-color: green;
-                }
-                .incorrect {
-                  background-color: red;
-                  
-                }
-    // input:checked + label {
-    //   background-color: #577f90;
-    //   color: #f3eae3;
-    //   border: 2px solid #f3eae3;
-    // }
-    // input:focus + label,
-    // input:hover + label {
-    //   color: #577f90;
-    //   background-color: #f3eae3;
-    //   border: 3px solid #577f90;
-    // }
+    .correct {
+      background-color: #92c0af;
+    }
+    .incorrect {
+      background-color: #f0917a;
+    }
   }
   .gameButton {
     width: 100%;
@@ -203,6 +154,25 @@
     }
     button:hover,
     button:focus {
+      color: #f0917a;
+      background-color: #f3eae3;
+    }
+  }
+  .gameEnd{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    a {
+      color: #f3eae3;
+      background-color: #f0917a;
+      border: 2px solid #f0917a;
+      padding: 15px 25px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    a:hover,
+    a:focus {
       color: #f0917a;
       background-color: #f3eae3;
     }

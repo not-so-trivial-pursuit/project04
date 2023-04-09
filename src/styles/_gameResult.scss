@@ -1,0 +1,31 @@
+.gameResult{
+    text-align: center;
+    .flexResult{
+        display: flex;
+        padding: 150px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h2{
+        font-size: clamp(5rem, 2vw, 7rem);
+        padding-bottom: 120px;
+    }
+    .homeLink{
+        margin-right: 20px;
+    }
+    a{
+        color: #f3eae3;
+        background-color: #F0917A;
+        border: 2px solid #F0917A;
+        padding: 15px 25px;
+        border-radius: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+    }
+    a:hover,
+    a:focus{
+    color: #F0917A;
+    background-color:#f3eae3;
+    }
+}
