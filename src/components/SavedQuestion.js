@@ -85,9 +85,8 @@ const SavedQuestion = (props) => {
                 htmlFor="one" 
                 onClick={() => { handleClick(0) }} 
                   className={
-                    (clickState[0] === true ? 'clicked' : '') +
-                    (hasClicked === true ? ' hasClicked' : '') +
-                    (correct === true ? " correct" : '')
+                    (props.triviaData[0] !== props.correctAnswer && correct === true ? " incorrect" : '') +
+                    (props.triviaData[0] === props.correctAnswer && correct === true ? " correct" : '')
                   }>{props.triviaData[0]}</label>
                 </div>
 
@@ -101,9 +100,8 @@ const SavedQuestion = (props) => {
                   />
               <label htmlFor="two" onClick={() => { handleClick(1) }} 
                   className={
-                    (clickState[0] === true ? 'clicked' : '') +
-                    (hasClicked === true ? ' hasClicked' : '') +
-                    (correct === true ? " correct" : '')
+                    (props.triviaData[1] !== props.correctAnswer && correct === true ? " incorrect" : '') +
+                    (props.triviaData[1] === props.correctAnswer && correct === true ? " correct" : '')
                   }>{props.triviaData[1]}</label>
                 </div>
 
@@ -119,9 +117,8 @@ const SavedQuestion = (props) => {
                 htmlFor="three" 
                 onClick={() => { handleClick(2) }} 
                   className={
-                    (clickState[0] === true ? 'clicked' : '') +
-                    (hasClicked === true ? ' hasClicked' : '') +
-                    (correct === true ? " correct" : '')
+                    (props.triviaData[2] !== props.correctAnswer && correct === true ? " incorrect" : '') +
+                    (props.triviaData[2] === props.correctAnswer && correct === true ? " correct" : '')
                   }>{props.triviaData[2]}</label>
                 </div>
 
@@ -135,9 +132,8 @@ const SavedQuestion = (props) => {
                   />
                 <label htmlFor="four" onClick={() => { handleClick(3) }} 
                   className={
-                    (clickState[0] === true ? 'clicked' : '') +
-                    (hasClicked === true ? ' hasClicked' : '') +
-                    (correct === true ? " correct" : '')
+                    (props.triviaData[3] !== props.correctAnswer && correct === true ? " incorrect" : '') +
+                    (props.triviaData[3] === props.correctAnswer && correct === true ? " correct" : '')
                   }>{props.triviaData[3]}</label>
                 </div>
               </div>

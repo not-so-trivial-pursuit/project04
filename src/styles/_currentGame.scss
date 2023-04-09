@@ -30,9 +30,6 @@
     font-size: clamp(0.8rem, 2vw, 1rem);
     
   }
-    .correct {
-      background-color: green;
-    }
   .q1 {
     display: flex;
     position: relative;
@@ -55,18 +52,23 @@
     }
                 .correct {
                   background-color: green;
+                  
                 }
-    input:checked + label {
-      background-color: #577f90;
-      color: #f3eae3;
-      border: 2px solid #f3eae3;
-    }
-    input:focus + label,
-    input:hover + label {
-      color: #577f90;
-      background-color: #f3eae3;
-      border: 3px solid #577f90;
-    }
+                .incorrect {
+                  background-color: red;
+                  
+                }
+    // input:checked + label {
+    //   background-color: #577f90;
+    //   color: #f3eae3;
+    //   border: 2px solid #f3eae3;
+    // }
+    // input:focus + label,
+    // input:hover + label {
+    //   color: #577f90;
+    //   background-color: #f3eae3;
+    //   border: 3px solid #577f90;
+    // }
   }
   .q2 {
     display: flex;
@@ -91,17 +93,21 @@
                 .correct {
                   background-color: green;
                 }
-    input:checked + label {
-      background-color: #577f90;
-      color: #f3eae3;
-      border: 2px solid #f3eae3;
-    }
-    input:focus + label,
-    input:hover + label {
-      color: #577f90;
-      background-color: #f3eae3;
-      border: 3px solid #577f90;
-    }
+                .incorrect {
+                  background-color: red;
+                  
+                }
+    // input:checked + label {
+    //   background-color: #577f90;
+    //   color: #f3eae3;
+    //   border: 2px solid #f3eae3;
+    // }
+    // input:focus + label,
+    // input:hover + label {
+    //   color: #577f90;
+    //   background-color: #f3eae3;
+    //   border: 3px solid #577f90;
+    // }
   }
   .q3 {
     display: flex;
@@ -126,17 +132,21 @@
                 .correct {
                   background-color: green;
                 }
-    input:checked + label {
-      background-color: #577f90;
-      color: #f3eae3;
-      border: 2px solid #f3eae3;
-    }
-    input:focus + label,
-    input:hover + label {
-      color: #577f90;
-      background-color: #f3eae3;
-      border: 3px solid #577f90;
-    }
+                .incorrect {
+                  background-color: red;
+                  
+                }
+    // input:checked + label {
+    //   background-color: #577f90;
+    //   color: #f3eae3;
+    //   border: 2px solid #f3eae3;
+    // }
+    // input:focus + label,
+    // input:hover + label {
+    //   color: #577f90;
+    //   background-color: #f3eae3;
+    //   border: 3px solid #577f90;
+    // }
   }
   .q4 {
     display: flex;
@@ -161,17 +171,21 @@
                 .correct {
                   background-color: green;
                 }
-    input:checked + label {
-      background-color: #577f90;
-      color: #f3eae3;
-      border: 2px solid #f3eae3;
-    }
-    input:focus + label,
-    input:hover + label {
-      color: #577f90;
-      background-color: #f3eae3;
-      border: 3px solid #577f90;
-    }
+                .incorrect {
+                  background-color: red;
+                  
+                }
+    // input:checked + label {
+    //   background-color: #577f90;
+    //   color: #f3eae3;
+    //   border: 2px solid #f3eae3;
+    // }
+    // input:focus + label,
+    // input:hover + label {
+    //   color: #577f90;
+    //   background-color: #f3eae3;
+    //   border: 3px solid #577f90;
+    // }
   }
   .gameButton {
     width: 100%;
