@@ -29,7 +29,7 @@ const SavedQuestion = (props) => {
             }
         })
         setClickState(nextArray)
-        
+
         let clickedIndexNum = nextArray.indexOf(true);
         console.log(clickedIndexNum);
 
@@ -43,26 +43,6 @@ const SavedQuestion = (props) => {
         setHasClicked(true)
 
       };
-
-      // useEffect(() => {
-      //   setCorrect(true);
-      // }, [hasClicked])
-
-//   className = {
-//     (clickState[0] === true ? 'clicked' : '') +
-//     (hasClicked === true ? ' hasClicked' : '') +
-//     (props.triviaData[0] === props.correctAnswer ? " correct" : '')
-// }> { props.triviaData[0] }
-
-  // <label
-  //   htmlFor="one"
-  //   onClick={() => { handleClick(0) }}
-  //   className={
-  //     (clickState[0] === true ? 'clicked' : '') +
-  //     (hasClicked === true ? ' hasClicked' : '') +
-  //     ((hasClicked === true && clickState[0] === true && props.triviaData[0] === props.correctAnswer) ? ' correct' : '')
-  //   }>{props.triviaData[0]}</label>
-
   
     return (
       <>
@@ -126,7 +106,6 @@ const SavedQuestion = (props) => {
                   className={
                     (hasClicked && props.triviaData[2] === props.correctAnswer ? ' correct' : '') +
                     (clickState[2] && props.triviaData[2] !== props.correctAnswer ? ' incorrect' : '') + 
-                    // (props.triviaData[2] !== props.correctAnswer && correct === true ? " incorrect" : '') +
                     (props.triviaData[2] === props.correctAnswer && correct === true ? " correct" : '') 
                   }>{props.triviaData[2]}</label>
                 </div>
@@ -143,7 +122,6 @@ const SavedQuestion = (props) => {
                   className={
                     (hasClicked && props.triviaData[3] === props.correctAnswer ? ' correct' : '') +
                     (clickState[3] && props.triviaData[3] !== props.correctAnswer ? ' incorrect' : '') + 
-                    // (props.triviaData[3] !== props.correctAnswer && correct === true ? " incorrect" : '') +
                     (props.triviaData[3] === props.correctAnswer && correct === true ? " correct" : '')
                     
                   }>{props.triviaData[3]}</label>
