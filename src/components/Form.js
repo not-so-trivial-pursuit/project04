@@ -104,4 +104,5 @@ export default Form;
 
 // need to add the loading animation for the api call!
 // on submit clear all fields in the form
-// other error handeling 
+// other error handling 
+// when user enters a number on title of the game, a logo is rendered to the page

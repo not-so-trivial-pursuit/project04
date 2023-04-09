@@ -22,8 +22,8 @@ const CurrentGame = (props) => {
     correctAns.correct_answer
   )
 
-  console.log(props.playerSelectTrivia.originalData)
-
+  // s
+  console.log(props.playerSelectTrivia.shuffledData)
   return (
     <section className="currentGame">
       <div className="wrapper background">
@@ -50,4 +50,4 @@ const CurrentGame = (props) => {
 };
 export default CurrentGame;
 
-// clean up code add in some error handleing add in the change state for user selection
+// clean up code add in some error handling add in the change state for user selection
