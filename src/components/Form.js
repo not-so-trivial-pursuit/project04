@@ -91,10 +91,7 @@ const Form = (props) => {
           />
 
           <button>
-            {/* <Link to="/newGame">
-                Game On
-            </Link> */}
-            Game On
+            {props.loading === true ? <>Loading..</> : <>Game On</>}
           </button>
         </form>
         </div>

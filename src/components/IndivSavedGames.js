@@ -71,26 +71,28 @@ const IndivSavedGames = () => {
   let singleGame = arr.filter((x) => {
     return x !== undefined;
   });
+  console.log(singleGame)
 
 
-
-  if (singleGame.length >0 && !valueSet){
+  if (singleGame.length > 0 && !valueSet){
     selectedGame = singleGame[0].title.userGenGame;
-
+    console.log(selectedGame)
     
     selectedQuestions = selectedGame.map((i) => {
       return i.question;
     });
-
+    console.log(selectedQuestions)
 
     selectedCorrectAns = selectedGame.map((c) => {
       return c.correct_answer;
     });
+    console.log(selectedCorrectAns)
     
     selectedIncorrectAns = selectedGame.map((c) => {
       let incorrAns = shuffleSaved(c.incorrect_answers);
       return incorrAns;
     });
+    console.log(selectedIncorrectAns)
 
     valueSet = true
   }
@@ -102,14 +104,14 @@ const IndivSavedGames = () => {
         <ul>
           <h2>{singleGame.title}</h2>
           {selectedGame.map((trivia, i) => {
-            console.log(trivia)
+            // console.log(trivia)
             return (
               <SavedQuestion 
               triviaData ={trivia}
               triviaIndex = {i}
               question ={selectedQuestions[i]}
               correctAnswer={selectedCorrectAns[i]}
-              // selectedIncorrectAns={selectedIncorrectAns}
+              selectedIncorrectAns={selectedIncorrectAns}
             />
             );
           })}
