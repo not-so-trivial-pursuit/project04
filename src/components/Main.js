@@ -27,7 +27,7 @@ let triviaData = {};
 
 const Main = () => {
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
-  const [numQuest, setNumQuest] = useState(10);
+  const [numQuest, setNumQuest] = useState(0);
   const [questionCategory, setQuestionCategory] = useState(0);
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
@@ -61,7 +61,11 @@ const Main = () => {
           type: "multiple",
         },
       }).then((apiData) => {
+
+        if(apiData.statusText){
+
         setLoading(false);
+        
         const shuffledArray = apiData.data.results.map((trivia) => {
           let myArray = [...trivia.incorrect_answers];
           myArray.push(trivia.correct_answer);
@@ -94,11 +98,14 @@ const Main = () => {
         };
   
         push(dbRef, newGame);
-      })
+      } else {
+        throw new Error (apiData.statusText)
+      }})
      }
      catch (error) {
       setLoading(false);
-      console.error(error);
+      console.error(error)
+      alert('Oops, something must have gone');
   }
   };
   return (

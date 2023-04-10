@@ -22,6 +22,7 @@ const CurrentGame = (props) => {
                 triviaIndex = {i}
                 correctAnswer = {answerBank[i]}
                 question = {props.playerSelectTrivia.originalData[i].question}     
+                key = {i}
                 />
 
               );
@@ -31,7 +32,7 @@ const CurrentGame = (props) => {
           <div className="gameEnd">
             <Link to="/gameResult">End Game</Link>
           </div>
-          
+
         </div>
       </div>
     </section>

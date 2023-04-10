@@ -24,7 +24,7 @@ const Form = (props) => {
               required
             >
               {/* ***** Fix selected Error when referring to defaultValue or Value in console log  ****** */}
-              <option value="Placeholder" disabled selected>
+              <option value="Placeholder" disabled required>
                 Category
               </option>
               <option value="0">Random Game</option>
@@ -63,7 +63,7 @@ const Form = (props) => {
               onChange={props.handleNumSelection}
               required
             >
-              <option value="Placeholder" disabled selected>
+              <option value="Placeholder" disabled required>
                 Number
               </option>
               <option value="5">5</option>
