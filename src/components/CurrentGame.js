@@ -1,16 +1,7 @@
 // CurrentGame.js
-import { useState, useEffect } from "react";
 import CurrentQuestion from "./CurrentQuestion";
 import { Link } from "react-router-dom";
 
-const correctAnswer = (userChoice, correctAnswer) => {
-    if (userChoice === correctAnswer){
-        console.log('correct!')
-    } else {
-        console.log('wrong!')
-    }
-
-}
 
 const CurrentGame = (props) => {
 
@@ -40,6 +31,9 @@ const CurrentGame = (props) => {
               );
             })}
           </ul>
+          <div className="gameEnd">
+            <Link to="/gameResult">End Game</Link>
+          </div>
         </div>
       </div>
     </section>
@@ -47,4 +41,3 @@ const CurrentGame = (props) => {
 };
 export default CurrentGame;
 
-// clean up code add in some error handling add in the change state for user selection

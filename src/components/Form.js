@@ -1,9 +1,7 @@
 // Form.js
-import { Link } from "react-router-dom";
 
 const Form = (props) => {
-  // ERROR HANDLING
-  // currently users are able to submit the form without making any selections. Please revisit!!!
+
   return (
     
     <section className="form">
@@ -109,5 +107,3 @@ export default Form;
 
 // need to add the loading animation for the api call!
 // on submit clear all fields in the form
-// other error handling 
-// when user enters a number on title of the game, a logo is rendered to the page

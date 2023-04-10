@@ -5,9 +5,6 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import icon from '../assets/icon.png'
 
-
-
-
 const Saved = () => {
     
     const navigate = useNavigate();
@@ -22,7 +19,6 @@ const Saved = () => {
 
             const arrayOfGames = [];
             
-
             for (let key in dbObj) {
                 const gameObj = {
                     title: dbObj[key],
@@ -33,8 +29,6 @@ const Saved = () => {
             setSavedGames(arrayOfGames);
         });
     }, []);
-
-    
 
     return (
         <aside>
@@ -56,14 +50,10 @@ const Saved = () => {
                             <p className='savedTitle'>{indivGame.title.userTitle}</p>
                             <p className='savedCat'>{indivGame.title.userCategory}</p>
                         </li>
-
                     })
                 }
             </ul>
         </aside>
-
-
-        
     )
 }
 

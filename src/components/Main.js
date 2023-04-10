@@ -76,9 +76,6 @@ const Main = () => {
 
         setTrivia(triviaData);
 
-  
-        // We are pushing straight to firebase after our API call. We will need to (maybe) change this if we want to meet our stretch goal of allowing users to select whether they want to save game.
-  
         const db = getDatabase(app);
         const dbRef = ref(db);
   
@@ -100,7 +97,7 @@ const Main = () => {
       })
      }
      catch (error) {
-      setLoading(false); // Stop loading in case of error
+      setLoading(false); 
       console.error(error);
   }
   };
