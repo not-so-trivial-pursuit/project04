@@ -19,6 +19,13 @@
     font-weight: lighter;
     font-size: clamp(2.5rem, 2vw, 3.5rem);
   }
+  p {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 2vw, 3.5rem);
+  }
   legend {
     font-size: clamp(1rem, 2vw, 1.5rem);
     padding: 35px 0;

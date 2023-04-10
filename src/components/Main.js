@@ -54,7 +54,7 @@ const Main = () => {
      try {
       setLoading(true);
       await axios({
-        url: "https://opentdb.com/api.php",
+        url: "https://opentdb.com/api.php?",
         params: {
           amount: numQuest,
           category: questionCategory,

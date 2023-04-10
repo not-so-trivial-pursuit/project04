@@ -25,7 +25,7 @@ const Form = (props) => {
               onChange={props.handleCatSelection}
               required
             >
-              {/* ***** Fix selected Error when refering to defaultValue or Value in console log  ****** */}
+              {/* ***** Fix selected Error when referring to defaultValue or Value in console log  ****** */}
               <option value="Placeholder" disabled selected>
                 Category
               </option>
@@ -83,6 +83,11 @@ const Form = (props) => {
           <input
             type="text"
             id="gameTitle"
+            pattern="^[a-zA-Z]+$"
+            onkeyup="(textonly prevent(e){
+              let result = new valuePrevent('^[a-zA-Z]+$').test(e.value)
+              return result;
+              })"
             required
             onChange={props.handleTitleInput}
             value={props.titleInput}
