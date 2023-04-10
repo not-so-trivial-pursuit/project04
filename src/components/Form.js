@@ -1,9 +1,5 @@
 // Form.js
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { getDatabase, ref, push } from "firebase/database";
-import app from "./Firebase";
-import { useState, useEffect } from "react";
 
 
 const shuffle = (array) => {
@@ -25,10 +21,7 @@ const shuffle = (array) => {
 let triviaData = {};
 
 const Form = (props) => {
-  // ERROR HANDLING
-  // currently users are able to submit the form without making any selections. Please revisit!!!
-// console.log(props.fetchData);
-console.log(props.trivia);
+
 
   const handleNumSelection = (e) => {
     props.setNumQuest(e.target.value);
@@ -42,13 +35,6 @@ console.log(props.trivia);
     props.setTitle(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log('hello');
-  //   props.fetchData();
-  //   props.setClickEvent(true);
-  // };
-
 
   return (
     <>
@@ -58,10 +44,7 @@ console.log(props.trivia);
         <div className="formContent">
         <h2>Create your very own Trivia Game!</h2>
 
-        <form
-          action=""
-          
-        >
+        <form action="">
           <div className="categorySelect">
             <label htmlFor="category">Choose your preferred category</label>
             <select
@@ -70,7 +53,6 @@ console.log(props.trivia);
               onChange={handleCatSelection}
               required
             >
-              {/* ***** Fix selected Error when refering to defaultValue or Value in console log  ****** */}
               <option value="Placeholder" disabled selected>
                 Category
               </option>
@@ -136,7 +118,6 @@ console.log(props.trivia);
           />
 
               <button type="submit" onClick={(e) => { props.handleSubmit(e) }}>
-            {/* {props.loading === true ? <>Loading..</> : <>Game On</>} */}
                 <Link to='/newGame'>
               Game On
             </Link>
@@ -152,8 +133,3 @@ console.log(props.trivia);
 };
 
 export default Form;
-
-// need to add the loading animation for the api call!
-// on submit clear all fields in the form
-// other error handling 
-// when user enters a number on title of the game, a logo is rendered to the page

@@ -47,11 +47,6 @@ function App() {
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
   const [loading, setLoading] = useState(false);
 
-  console.log(trivia);
-  console.log(trivia.shuffledData);
-  console.log(trivia.originalData)
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('hello');
@@ -60,7 +55,6 @@ function App() {
   };
 
   const fetchData = () => {
-    // console.log('hello');
     axios({
       url: "https://opentdb.com/api.php",
       params: {
@@ -70,7 +64,6 @@ function App() {
       },
     }).then((apiData) => {
 
-      console.log(apiData);
       const shuffledArray = apiData.data.results.map((trivia) => {
         let myArray = [...trivia.incorrect_answers];
         myArray.push(trivia.correct_answer);
@@ -84,7 +77,6 @@ function App() {
       };
 
       setTrivia(triviaData);
-      console.log(triviaData);
 
       const db = getDatabase(app);
       const dbRef = ref(db);
@@ -102,12 +94,9 @@ function App() {
 
         userGenGame: apiData.data.results,
       };
-      console.log(newGame);
       push(dbRef, newGame);
     })
   };
-
-
 
 
   return (
