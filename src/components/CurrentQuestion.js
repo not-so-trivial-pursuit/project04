@@ -1,6 +1,5 @@
 // CurrentQuestion.js
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const CurrentQuestion = (props) => {
     
@@ -23,7 +22,6 @@ const CurrentQuestion = (props) => {
         let clickedIndexNum = nextArray.indexOf(true);
         console.log(clickedIndexNum);
 
-        // another if to tie this to other states
         if (props.triviaData[clickedIndexNum] === props.correctAnswer){
           setCorrect(true);
         } else {
@@ -36,7 +34,7 @@ const CurrentQuestion = (props) => {
 
   
     return (
-        <li>
+        <li key={`${props.correctAnswer}`}>
             <form
             className={props.triviaIndex}>
 
@@ -80,7 +78,6 @@ const CurrentQuestion = (props) => {
                       className={
                         (hasClicked && props.triviaData[1] === props.correctAnswer ? ' correct' : '') + 
                         (clickState[1] && props.triviaData[1] !== props.correctAnswer ? ' incorrect' : '') + 
-                        // (props.triviaData[1] !== props.correctAnswer && correct === true ? " incorrect" : '') +
                         (props.triviaData[1] === props.correctAnswer && correct === true ? " correct" : '') 
                       }>{props.triviaData[1]}
                     </label>
@@ -100,7 +97,6 @@ const CurrentQuestion = (props) => {
                       className={
                         (hasClicked && props.triviaData[2] === props.correctAnswer ? ' correct' : '') +
                         (clickState[2] && props.triviaData[2] !== props.correctAnswer ? ' incorrect' : '') + 
-                        // (props.triviaData[2] !== props.correctAnswer && correct === true ? " incorrect" : '') +
                         (props.triviaData[2] === props.correctAnswer && correct === true ? " correct" : '') 
                       }>{props.triviaData[2]}
                   </label>
@@ -119,16 +115,13 @@ const CurrentQuestion = (props) => {
                     className={
                       (hasClicked && props.triviaData[3] === props.correctAnswer ? ' correct' : '') +
                       (clickState[3] && props.triviaData[3] !== props.correctAnswer ? ' incorrect' : '') + 
-                      // (props.triviaData[3] !== props.correctAnswer && correct === true ? " incorrect" : '') +
                       (props.triviaData[3] === props.correctAnswer && correct === true ? " correct" : '')
                       
                     }>{props.triviaData[3]}
                   </label>
                 </div>
-
                 </div>
               </fieldset>
-
             </form>
           </li>
     )

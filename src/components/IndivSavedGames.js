@@ -3,7 +3,7 @@ import app from "./Firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import SavedQuestion from "./SavedQuestion";
 
@@ -149,8 +149,8 @@ const IndivSavedGames = () => {
     <section className="currentGame">
       <div className="wrapper background">
         <div className="currentGameContent">
+        <h2>{selectedCat}</h2>
           <ul>
-            <h2>{selectedCat}</h2>
             {savedTrivia.shuffledData.map((trivia, i) => {
               return (
                 <SavedQuestion

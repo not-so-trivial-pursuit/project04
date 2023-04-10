@@ -1,23 +1,11 @@
-import { useState, useEffect } from "react";
-
-
-const correctAnswer = (userChoice, correctAnswer) => {
-  if (userChoice === correctAnswer) {
-    console.log('correct!')
-  } else {
-    console.log('wrong!')
-  }
-
-}
+import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const SavedQuestion = (props) => {
     
     const [ clickState, setClickState ] = useState([false, false, false, false]);
     const [ hasClicked, setHasClicked ] = useState(false);
     const [ correct, setCorrect ] = useState(false)
-
-    console.log(props.correctArray);
-
 
       const handleClick = (clickedIndex) => {
 
@@ -31,9 +19,7 @@ const SavedQuestion = (props) => {
         setClickState(nextArray)
 
         let clickedIndexNum = nextArray.indexOf(true);
-        console.log(clickedIndexNum);
 
-        // another if to tie this to other states
         if (props.triviaData[clickedIndexNum] === props.correctAnswer){
           setCorrect(true);
         } else {
@@ -41,12 +27,12 @@ const SavedQuestion = (props) => {
         }
 
         setHasClicked(true)
-
       };
+
   
     return (
       <>
-        <li>
+        <li key={uuidv4()}>
           <form
           className={props.triviaIndex}>
 

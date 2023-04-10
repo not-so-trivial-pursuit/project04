@@ -25,8 +25,8 @@
   }
   .answers {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    // flex-wrap: wrap;
     font-size: clamp(0.8rem, 2vw, 1rem);
     margin-bottom: 20px;
   }
@@ -43,6 +43,7 @@
       opacity: 0;
     }
     label {
+      text-align: center;
       color: #f3eae3;
       background-color: #577f90;
       border: 3px solid #f3eae3;
@@ -70,6 +71,7 @@
       opacity: 0;
     }
     label {
+      text-align: center;
       color: #f3eae3;
       background-color: #577f90;
       border: 3px solid #f3eae3;
@@ -97,6 +99,7 @@
       opacity: 0;
     }
     label {
+      text-align: center;
       color: #f3eae3;
       background-color: #577f90;
       border: 3px solid #f3eae3;
@@ -124,6 +127,7 @@
       opacity: 0;
     }
     label {
+      text-align: center;
       color: #f3eae3;
       background-color: #577f90;
       border: 3px solid #f3eae3;
