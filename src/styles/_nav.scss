@@ -1,6 +1,8 @@
 nav{
-    padding: 20px;
     .logo{
+            // padding: 20px;
+        position: absolute;
+        z-index: 10;
         display: flex;
         figure{
             flex-basis: 8%;

@@ -82,10 +82,10 @@ const Form = (props) => {
             type="text"
             id="gameTitle"
             pattern="^[a-zA-Z]+$"
-            onkeyup="(textonly prevent(e){
-              let result = new valuePrevent('^[a-zA-Z]+$').test(e.value)
-              return result;
-              })"
+            // onKeyUp="(textonly prevent(e){
+            //   let result = new valuePrevent('^[a-zA-Z]+$').test(e.value)
+            //   return result;
+            //   })"
             required
             onChange={props.handleTitleInput}
             value={props.titleInput}
