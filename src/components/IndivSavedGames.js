@@ -30,7 +30,6 @@ let selectedUserChoice = {};
 let valueSet = false;
 let selectedCat = "";
 let selectedTitle = "";
-let gameCategory = null;
 let selectedNum = null;
 
 const IndivSavedGames = () => {
@@ -65,7 +64,6 @@ const IndivSavedGames = () => {
     if (i.id === params.id) {
       return i;
     }
-    console.log(i)
   });
 
   let singleGame = arr.filter((x) => {
@@ -119,7 +117,7 @@ const IndivSavedGames = () => {
 
   const fetchSavedData = () => {
     axios({
-      url: "https://opentdb.com/api.php?",
+      url: "https://opentdb.com/api.php",
       params: {
         amount: selectedNum,
         category: gameCategory,
@@ -162,6 +160,8 @@ const IndivSavedGames = () => {
                   correctAnswer={answerBank[i]}
                   correctArray={answerBank}
                   question={savedTrivia.originalData[i].question}
+                  key={i}
+
                 />
               );
             })}

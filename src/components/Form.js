@@ -1,9 +1,7 @@
 // Form.js
-import { Link } from "react-router-dom";
 
 const Form = (props) => {
-  // ERROR HANDLING
-  // currently users are able to submit the form without making any selections. Please revisit!!!
+
   return (
     
     <section className="form">
@@ -26,7 +24,7 @@ const Form = (props) => {
               required
             >
               {/* ***** Fix selected Error when referring to defaultValue or Value in console log  ****** */}
-              <option value="Placeholder" disabled selected>
+              <option value="Placeholder" disabled required>
                 Category
               </option>
               <option value="0">Random Game</option>
@@ -65,7 +63,7 @@ const Form = (props) => {
               onChange={props.handleNumSelection}
               required
             >
-              <option value="Placeholder" disabled selected>
+              <option value="Placeholder" disabled required>
                 Number
               </option>
               <option value="5">5</option>
@@ -109,4 +107,3 @@ export default Form;
 
 // need to add the loading animation for the api call!
 // on submit clear all fields in the form
-// other error handling 
