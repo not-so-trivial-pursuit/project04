@@ -1,55 +1,57 @@
 // Form.js
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { getDatabase, ref, push } from "firebase/database";
+import app from "./Firebase";
 import { useState, useEffect } from "react";
-import CurrentGame from "./CurrentGame";
+
+
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+};
+
+let triviaData = {};
 
 const Form = (props) => {
   // ERROR HANDLING
   // currently users are able to submit the form without making any selections. Please revisit!!!
-  const [numQuest, setNumQuest] = useState(10);
-  const [questionCategory, setQuestionCategory] = useState(0);
-  const [title, setTitle] = useState("");
-  const [clickEvent, setClickEvent] = useState(false)
-
-  console.log(numQuest)
-  console.log(clickEvent)
-  console.log(questionCategory)
-  console.log(title);
+// console.log(props.fetchData);
+console.log(props.trivia);
 
   const handleNumSelection = (e) => {
-    setNumQuest(e.target.value);
-    console.log('hello numSelection')
+    props.setNumQuest(e.target.value);
   };
 
   const handleCatSelection = (e) => {
-    setQuestionCategory(e.target.value);
-    console.log('hello catSelection')
+    props.setQuestionCategory(e.target.value);
   };
 
   const handleTitleInput = (e) => {
-    setTitle(e.target.value);
-    console.log('hello titleSelection')
+    props.setTitle(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // fetchData();
-    setClickEvent(true);
-    console.log('hello')
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log('hello');
+  //   props.fetchData();
+  //   props.setClickEvent(true);
+  // };
+
 
   return (
     <>
-    <section className="hidden">
-      <CurrentGame 
-          title={title}
-          numQuest={numQuest}
-          questionCategory={questionCategory}
-          clickEvent={clickEvent}
-
-      />      
-    </section>
-
 
     <section className="form">
       <div className="wrapper circle">
@@ -58,9 +60,7 @@ const Form = (props) => {
 
         <form
           action=""
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
+          
         >
           <div className="categorySelect">
             <label htmlFor="category">Choose your preferred category</label>
@@ -130,14 +130,14 @@ const Form = (props) => {
             id="gameTitle"
             required
             onChange={handleTitleInput}
-            value={title}
+            value={props.title}
             className ="nameGame"
             placeholder="Name the game"
           />
 
-          <button>
+              <button type="submit" onClick={(e) => { props.handleSubmit(e) }}>
             {/* {props.loading === true ? <>Loading..</> : <>Game On</>} */}
-            <Link to='/newGame'>
+                <Link to='/newGame'>
               Game On
             </Link>
           </button>
@@ -145,6 +145,8 @@ const Form = (props) => {
         </div>
       </div>
     </section>
+
+
     </>
   );
 };
