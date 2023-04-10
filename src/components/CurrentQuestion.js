@@ -30,6 +30,13 @@ const CurrentQuestion = (props) => {
         setHasClicked(true)
       };
 
+      // To help decode the html encoding credits to: https://tertiumnon.medium.com/js-how-to-decode-html-entities-8ea807a140e5
+      function decodeText(text) {
+        const textArea = document.createElement('textarea');
+        textArea.innerHTML = text;
+        return textArea.value;
+    }
+
     return (
         <li key={`${props.correctAnswer}`}>
             <form
@@ -37,10 +44,8 @@ const CurrentQuestion = (props) => {
 
               <fieldset>
                 <legend>
-                  {props.question
-                    .replace(/&quot;/g, '"')
-                    .replace(/&#039;/g, "'")
-                    .replace(/&rsquo;/g, "'")}
+                  {decodeText(props.question)
+                    }
                 </legend>
 
                 <div className="answers">
@@ -60,7 +65,7 @@ const CurrentQuestion = (props) => {
                         
                         (clickState[0] && props.triviaData[0] !== props.correctAnswer ? ' incorrect' : '') + 
                         (props.triviaData[0] === props.correctAnswer && correct === true ? " correct" : '') 
-                      }>{props.triviaData[0]}
+                      }>{decodeText(props.triviaData[0])}
                     </label>
                 </div>
 
@@ -76,7 +81,7 @@ const CurrentQuestion = (props) => {
                         (hasClicked && props.triviaData[1] === props.correctAnswer ? ' correct' : '') + 
                         (clickState[1] && props.triviaData[1] !== props.correctAnswer ? ' incorrect' : '') + 
                         (props.triviaData[1] === props.correctAnswer && correct === true ? " correct" : '') 
-                      }>{props.triviaData[1]}
+                      }>{decodeText(props.triviaData[1])}
                     </label>
                 </div>
 
@@ -95,7 +100,7 @@ const CurrentQuestion = (props) => {
                         (hasClicked && props.triviaData[2] === props.correctAnswer ? ' correct' : '') +
                         (clickState[2] && props.triviaData[2] !== props.correctAnswer ? ' incorrect' : '') + 
                         (props.triviaData[2] === props.correctAnswer && correct === true ? " correct" : '') 
-                      }>{props.triviaData[2]}
+                      }>{decodeText(props.triviaData[2])}
                   </label>
                 </div>
 
@@ -114,7 +119,7 @@ const CurrentQuestion = (props) => {
                       (clickState[3] && props.triviaData[3] !== props.correctAnswer ? ' incorrect' : '') + 
                       (props.triviaData[3] === props.correctAnswer && correct === true ? " correct" : '')
                       
-                    }>{props.triviaData[3]}
+                    }>{decodeText(props.triviaData[3])}
                   </label>
                 </div>
                 </div>

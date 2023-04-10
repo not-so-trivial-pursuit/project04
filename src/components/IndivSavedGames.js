@@ -121,7 +121,7 @@ const IndivSavedGames = () => {
       params: {
         amount: selectedNum,
         category: gameCategory,
-        type: "multiple",
+        type: "multiple"
       },
     }).then((apiData) => {
       const shuffledArray = apiData.data.results.map((trivia) => {
