@@ -65,7 +65,6 @@ const IndivSavedGames = () => {
     if (i.id === params.id) {
       return i;
     }
-    console.log(i)
   });
 
   let singleGame = arr.filter((x) => {
@@ -154,7 +153,7 @@ const IndivSavedGames = () => {
         <div className="currentGameContent">
         <h2>{selectedCat}</h2>
           <ul>
-            {/* <h2>{selectedCat}</h2> */}
+            <h2>{selectedCat}</h2>
             <p>{selectedTitle}</p>
             {savedTrivia.shuffledData.map((trivia, i) => {
               return (

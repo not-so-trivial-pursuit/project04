@@ -31,8 +31,6 @@ const CurrentQuestion = (props) => {
         setHasClicked(true)
       };
 
-
-  
     return (
         <li key={`${props.correctAnswer}`}>
             <form

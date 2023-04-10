@@ -11,7 +11,7 @@ const Nav = () => {
             <div className="wrapper">
                 <Link to="/">
                     <div className='logo'>
-                        {/* look for semantic */}
+
                         <figure>
                             <img src={logo} alt="not so trivial pursuit logo" />
                         </figure>
