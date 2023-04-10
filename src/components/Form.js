@@ -84,10 +84,10 @@ const Form = (props) => {
             type="text"
             id="gameTitle"
             pattern="^[a-zA-Z]+$"
-            onkeyup="(textonly prevent(e){
-              let result = new valuePrevent('^[a-zA-Z]+$').test(e.value)
-              return result;
-              })"
+            // onKeyUp="(textonly prevent(e){
+            //   let result = new valuePrevent('^[a-zA-Z]+$').test(e.value)
+            //   return result;
+            //   })"
             required
             onChange={props.handleTitleInput}
             value={props.titleInput}
@@ -110,4 +110,3 @@ export default Form;
 // need to add the loading animation for the api call!
 // on submit clear all fields in the form
 // other error handling 
-// when user enters a number on title of the game, a logo is rendered to the page

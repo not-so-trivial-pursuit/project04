@@ -152,10 +152,8 @@ const IndivSavedGames = () => {
     <section className="currentGame">
       <div className="wrapper background">
         <div className="currentGameContent">
-        <h2>{selectedCat}</h2>
+        <h2>{selectedTitle}</h2>
           <ul>
-            {/* <h2>{selectedCat}</h2> */}
-            <p>{selectedTitle}</p>
             {savedTrivia.shuffledData.map((trivia, i) => {
               return (
                 <SavedQuestion
