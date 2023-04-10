@@ -1,11 +1,56 @@
 // Form.js
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import CurrentGame from "./CurrentGame";
 
 const Form = (props) => {
   // ERROR HANDLING
   // currently users are able to submit the form without making any selections. Please revisit!!!
+  const [numQuest, setNumQuest] = useState(10);
+  const [questionCategory, setQuestionCategory] = useState(0);
+  const [title, setTitle] = useState("");
+  const [clickEvent, setClickEvent] = useState(false)
+
+  console.log(numQuest)
+  console.log(clickEvent)
+  console.log(questionCategory)
+  console.log(title);
+
+  const handleNumSelection = (e) => {
+    setNumQuest(e.target.value);
+    console.log('hello numSelection')
+  };
+
+  const handleCatSelection = (e) => {
+    setQuestionCategory(e.target.value);
+    console.log('hello catSelection')
+  };
+
+  const handleTitleInput = (e) => {
+    setTitle(e.target.value);
+    console.log('hello titleSelection')
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // fetchData();
+    setClickEvent(true);
+    console.log('hello')
+  };
+
   return (
-    
+    <>
+    <section className="hidden">
+      <CurrentGame 
+          title={title}
+          numQuest={numQuest}
+          questionCategory={questionCategory}
+          clickEvent={clickEvent}
+
+      />      
+    </section>
+
+
     <section className="form">
       <div className="wrapper circle">
         <div className="formContent">
@@ -14,7 +59,7 @@ const Form = (props) => {
         <form
           action=""
           onSubmit={(e) => {
-            props.handleSubmit(e);
+            handleSubmit(e);
           }}
         >
           <div className="categorySelect">
@@ -22,7 +67,7 @@ const Form = (props) => {
             <select
               name=""
               id="category"
-              onChange={props.handleCatSelection}
+              onChange={handleCatSelection}
               required
             >
               {/* ***** Fix selected Error when refering to defaultValue or Value in console log  ****** */}
@@ -62,7 +107,7 @@ const Form = (props) => {
             <select
               name=""
               id="numbers"
-              onChange={props.handleNumSelection}
+              onChange={handleNumSelection}
               required
             >
               <option value="Placeholder" disabled selected>
@@ -84,19 +129,23 @@ const Form = (props) => {
             type="text"
             id="gameTitle"
             required
-            onChange={props.handleTitleInput}
-            value={props.titleInput}
+            onChange={handleTitleInput}
+            value={title}
             className ="nameGame"
             placeholder="Name the game"
           />
 
           <button>
-            {props.loading === true ? <>Loading..</> : <>Game On</>}
+            {/* {props.loading === true ? <>Loading..</> : <>Game On</>} */}
+            <Link to='/newGame'>
+              Game On
+            </Link>
           </button>
         </form>
         </div>
       </div>
     </section>
+    </>
   );
 };
 
