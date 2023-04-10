@@ -1,22 +1,9 @@
 // CurrentGame.js
-import { useState, useEffect } from "react";
 import CurrentQuestion from "./CurrentQuestion";
 import { Link } from "react-router-dom";
 
-const correctAnswer = (userChoice, correctAnswer) => {
-    if (userChoice === correctAnswer){
-        console.log('correct!')
-    } else {
-        console.log('wrong!')
-    }
-
-}
 
 const CurrentGame = (props) => {
-
-  if (props.playerSelectTrivia.originalData.length < 0 || props.playerSelectTrivia.originalData === undefined) {
-    return null;
-  }
 
   let answerBank = props.playerSelectTrivia.originalData.map((correctAns) => 
     correctAns.correct_answer
@@ -40,6 +27,9 @@ const CurrentGame = (props) => {
               );
             })}
           </ul>
+          <div className="gameEnd">
+            <Link to="/gameResult">End Game</Link>
+          </div>
         </div>
       </div>
     </section>

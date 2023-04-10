@@ -61,6 +61,7 @@ const Main = () => {
           type: "multiple",
         },
       }).then((apiData) => {
+        console.log(apiData)
         setLoading(false);
         const shuffledArray = apiData.data.results.map((trivia) => {
           let myArray = [...trivia.incorrect_answers];
