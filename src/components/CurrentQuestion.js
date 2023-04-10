@@ -20,7 +20,6 @@ const CurrentQuestion = (props) => {
         setClickState(nextArray)
 
         let clickedIndexNum = nextArray.indexOf(true);
-        console.log(clickedIndexNum);
 
         if (props.triviaData[clickedIndexNum] === props.correctAnswer){
           setCorrect(true);

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 
-
 const GameResult = () => {
     return(
         <section className="gameResult">
@@ -10,7 +9,7 @@ const GameResult = () => {
 
                     <Link to="/" className="homeLink">Home</Link>
                     <Link to="/form">Create a Game</Link>
-                    
+
                 </div>
             </div>
         </section>
