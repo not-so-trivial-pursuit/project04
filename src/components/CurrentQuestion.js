@@ -54,11 +54,13 @@ const CurrentQuestion = (props) => {
                       type="radio"
                       id="one"
                       name="question"
+                      tabIndex="0"
                       onClick={()=>{handleClick(0)}}
                       
                     />
                   <label 
                     htmlFor="one" 
+                    tabIndex="0"
                     onClick={() => { handleClick(0) }} 
                       className={
                         (hasClicked && props.triviaData[0] === props.correctAnswer ? ' correct' : '') +
@@ -73,10 +75,14 @@ const CurrentQuestion = (props) => {
                     <input
                     type="radio"
                     id="two"
-                    name="question"       
+                    name="question"  
+                    tabIndex="0"     
                     onClick={()=>{handleClick(1)}}
                     />
-                    <label htmlFor="two" onClick={() => { handleClick(1) }} 
+                    <label 
+                    htmlFor="two" 
+                    tabIndex="0"
+                    onClick={() => { handleClick(1) }} 
                       className={
                         (hasClicked && props.triviaData[1] === props.correctAnswer ? ' correct' : '') + 
                         (clickState[1] && props.triviaData[1] !== props.correctAnswer ? ' incorrect' : '') + 
@@ -89,12 +95,14 @@ const CurrentQuestion = (props) => {
                   <input
                     type="radio"
                     id="three"
-                    name="question"        
+                    name="question" 
+                    tabIndex="0"       
                     onClick={()=>{handleClick(2)}}      
                       
                   />
                   <label 
                     htmlFor="three" 
+                    tabIndex="0"
                     onClick={() => { handleClick(2) }} 
                       className={
                         (hasClicked && props.triviaData[2] === props.correctAnswer ? ' correct' : '') +
@@ -109,11 +117,15 @@ const CurrentQuestion = (props) => {
                     type="radio"
                     id="four"
                     name="question"
+                    tabIndex="0"
                     onClick={()=>{handleClick(3)}}
                     
                   />
 
-                  <label htmlFor="four" onClick={() => { handleClick(3) }} 
+                  <label 
+                  htmlFor="four" 
+                  tabIndex="0"
+                  onClick={() => { handleClick(3) }} 
                     className={
                       (hasClicked && props.triviaData[3] === props.correctAnswer ? ' correct' : '') +
                       (clickState[3] && props.triviaData[3] !== props.correctAnswer ? ' incorrect' : '') + 

@@ -109,6 +109,9 @@ function App() {
   //   alert('Oops, something must have gone wrong');
   // }
     
+
+
+
   return (
     <div className="App">
     <Nav />
@@ -143,7 +146,7 @@ function App() {
           fetchData={fetchData}
           />} />
 
-        <Route path='/individualSavedGame/:id' element = {<IndivSavedGames/>} />
+        <Route path='/individualSavedGame/:id' element = {<IndivSavedGames />} />
         <Route path='/gameResult' element = {<GameResult />} />
         <Route path='/*' element = {<Error />} />
       </Routes>

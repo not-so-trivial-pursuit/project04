@@ -11,9 +11,9 @@ const Home = () => {
           <h1>
             Customizable Trivia Games for <span>fun with friends</span>
           </h1>
-          <div className="links">
+          <button className="links">
           <Link to="/form"> Create a game</Link>
-          </div>
+          </button>
         </div>
         <div className="homeRight">
         <h2>Scroll to select from saved games!</h2>
