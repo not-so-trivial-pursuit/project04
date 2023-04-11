@@ -1,30 +1,59 @@
 // Form.js
+import { Link } from "react-router-dom";
+
+
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+};
+
+let triviaData = {};
 
 const Form = (props) => {
 
+
+  const handleNumSelection = (e) => {
+    props.setNumQuest(e.target.value);
+  };
+
+  const handleCatSelection = (e) => {
+    props.setQuestionCategory(e.target.value);
+  };
+
+  const handleTitleInput = (e) => {
+    props.setTitle(e.target.value);
+  };
+
+
   return (
-    
+    <>
+
     <section className="form">
       <div className="wrapper circle">
         <div className="formContent">
         <h2>Create your very own Trivia Game!</h2>
 
-        <form
-          action=""
-          onSubmit={(e) => {
-            props.handleSubmit(e);
-          }}
-        >
+        <form action="">
           <div className="categorySelect">
             <label htmlFor="category">Choose your preferred category</label>
             <select
               name=""
               id="category"
-              onChange={props.handleCatSelection}
+              onChange={handleCatSelection}
               required
             >
-              {/* ***** Fix selected Error when referring to defaultValue or Value in console log  ****** */}
-              <option value="Placeholder" disabled required>
+              <option value="Placeholder" disabled selected>
                 Category
               </option>
               <option value="0">Random Game</option>
@@ -60,7 +89,7 @@ const Form = (props) => {
             <select
               name=""
               id="numbers"
-              onChange={props.handleNumSelection}
+              onChange={handleNumSelection}
               required
             >
               <option value="Placeholder" disabled required>
@@ -87,23 +116,25 @@ const Form = (props) => {
             //   return result;
             //   })"
             required
-            onChange={props.handleTitleInput}
-            value={props.titleInput}
+            onChange={handleTitleInput}
+            value={props.title}
             className ="nameGame"
             placeholder="Name the game"
           />
 
-          <button>
-            {props.loading === true ? <>Loading..</> : <>Game On</>}
+              <button type="submit" onClick={(e) => { props.handleSubmit(e) }}>
+                <Link to='/newGame'>
+              Game On
+            </Link>
           </button>
         </form>
         </div>
       </div>
     </section>
+
+
+    </>
   );
 };
 
 export default Form;
-
-// need to add the loading animation for the api call!
-// on submit clear all fields in the form
