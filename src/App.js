@@ -39,7 +39,7 @@ let triviaData = {};
 
 function App() {
 
-  const [numQuest, setNumQuest] = useState(10);
+  const [numQuest, setNumQuest] = useState(0);
   const [questionCategory, setQuestionCategory] = useState(0);
   const [title, setTitle] = useState("");
   const [clickEvent, setClickEvent] = useState(false)
@@ -49,14 +49,11 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('hello');
     fetchData();
     setClickEvent(true);
   };
 
   const fetchData = () => {
-    
-
       // setLoading(true);
       axios({
       url: "https://opentdb.com/api.php",
@@ -151,7 +148,7 @@ function App() {
 
         <Route path='/individualSavedGame/:id' element = {<IndivSavedGames />} />
         <Route path='/gameResult' element = {<GameResult />} />
-        <Route path='*' element = {<Error />} />
+        <Route path='/*' element = {<Error />} />
       </Routes>
     <Footer/>
     </div>
