@@ -1,17 +1,20 @@
 .home{
-    padding-top: 70px;
+    height: calc( 100vh - 44px);
     .flexHome{
         display: flex;
     }   
     .homeLeft{
         flex-basis: 55%;
         padding-right: 5%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         h1{
             font-weight: lighter;
             text-align: center;
-            font-size: clamp(4rem, 2vw, 6rem);
-            line-height: clamp(4.8rem, 2vw, 7rem);
-            margin-bottom: 60px;
+            font-size: clamp(3.8rem, 2vw, 5.8rem);
+            line-height: clamp(4.2rem, 2vw, 6rem);
+            margin-bottom: 80px;
             span{
                 display: block;
                 font-size: clamp(3rem, 2vw, 5rem);
@@ -36,14 +39,14 @@
     .homeRight{
         flex-basis: 40%;
         position: relative;
-        top: -170px;
+        top: 30px;
         h2{
             font-size: clamp(0.8rem, 2vw, 1rem);
             padding-bottom: 10px;
             text-align: center;
         }
         .saved{
-            height: 620px;
+            height: 840px;
             overflow-y: scroll;
             text-align: center;
             .savedTitle{
@@ -53,7 +56,6 @@
         }
 
     }
-
 }
 
 .hidden{

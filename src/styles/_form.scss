@@ -3,14 +3,14 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    // height: 100vh;
+    height: calc( 100vh - 44px);
 }
 
 .circle{
     background-color: #f3eae3;
     border: 15px solid #92c0af;
     border-radius: 50%;
-    padding-top: 50px;
+    padding: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +19,6 @@
 
 .formContent{
     padding: 80px 0;
-    // width: 85%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -68,6 +67,13 @@
         border-radius: 50px;
         transition: background-color 0.3s ease, color 0.3s ease;
         cursor: pointer;
+        a{
+            color: #f3eae3;
+        }
+        a:hover,
+        a:focus{
+        color: #F0917A;
+        }
     }
     button:hover,
     button:focus{
