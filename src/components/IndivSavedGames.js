@@ -30,6 +30,7 @@ let selectedUserChoice = {};
 let valueSet = false;
 let selectedCat = "";
 let selectedTitle = "";
+
 let selectedNum = null;
 
 const IndivSavedGames = () => {
@@ -64,6 +65,7 @@ const IndivSavedGames = () => {
     if (i.id === params.id) {
       return i;
     }
+    
   });
 
   let singleGame = arr.filter((x) => {
@@ -121,7 +123,7 @@ const IndivSavedGames = () => {
       params: {
         amount: selectedNum,
         category: gameCategory,
-        type: "multiple"
+        type: "multiple",
       },
     }).then((apiData) => {
       const shuffledArray = apiData.data.results.map((trivia) => {
@@ -150,7 +152,7 @@ const IndivSavedGames = () => {
     <section className="currentGame">
       <div className="wrapper background">
         <div className="currentGameContent">
-        <h2>{selectedTitle}</h2>
+            <h2>{selectedTitle}</h2>
           <ul>
             {savedTrivia.shuffledData.map((trivia, i) => {
               return (
