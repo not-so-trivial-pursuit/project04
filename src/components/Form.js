@@ -53,7 +53,7 @@ const Form = (props) => {
               onChange={handleCatSelection}
               required
             >
-              <option value="Placeholder" disabled selected>
+              <option value="Placeholder" disabled >
                 Category
               </option>
               <option value="0">Random Game</option>

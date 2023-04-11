@@ -18,13 +18,12 @@ const CurrentGame = (props) => {
                 <h2>{props.title}</h2>
                 {props.trivia.shuffledData.map((trivia, i) => {
                   return (
-
                     <CurrentQuestion 
                     triviaData ={trivia}
                     triviaIndex = {i}
                     correctAnswer = {answerBank[i]}
                     question = {props.trivia.originalData[i].question}
-                    
+                    key = {i}
                     />
                   );
                 })}
