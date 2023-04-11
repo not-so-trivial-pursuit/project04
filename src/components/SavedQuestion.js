@@ -29,6 +29,11 @@ const SavedQuestion = (props) => {
         setHasClicked(true)
       };
 
+  function decodeText(text) {
+    const textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
+  }
   
     return (
       <>
@@ -38,10 +43,7 @@ const SavedQuestion = (props) => {
 
             <fieldset>
               <legend>
-                {props.question
-                  .replace(/&quot;/g, '"')
-                  .replace(/&#039;/g, "'")
-                  .replace(/&rsquo;/g, "'")}
+                {decodeText(props.question)}
               </legend>
               <div className="answers">
                 <div className="q1">
@@ -59,7 +61,7 @@ const SavedQuestion = (props) => {
                     (hasClicked && props.triviaData[0] === props.correctAnswer ? ' correct' : '') +
                     (clickState[0] && props.triviaData[0] !== props.correctAnswer ? ' incorrect' : '') + 
                     (props.triviaData[0] === props.correctAnswer && correct === true ? " correct" : '') 
-                  }>{props.triviaData[0]}</label>
+                  }>{decodeText(props.triviaData[0])}</label>
                 </div>
 
                 <div className="q2">
@@ -75,7 +77,7 @@ const SavedQuestion = (props) => {
                     (hasClicked && props.triviaData[1] === props.correctAnswer ? ' correct' : '') + 
                     (clickState[1] && props.triviaData[1] !== props.correctAnswer ? ' incorrect' : '') + 
                     (props.triviaData[1] === props.correctAnswer && correct === true ? " correct" : '') 
-                  }>{props.triviaData[1]}</label>
+                    }>{decodeText(props.triviaData[1])}</label>
                 </div>
 
                 <div className="q3">
@@ -93,7 +95,7 @@ const SavedQuestion = (props) => {
                     (hasClicked && props.triviaData[2] === props.correctAnswer ? ' correct' : '') +
                     (clickState[2] && props.triviaData[2] !== props.correctAnswer ? ' incorrect' : '') + 
                     (props.triviaData[2] === props.correctAnswer && correct === true ? " correct" : '') 
-                  }>{props.triviaData[2]}</label>
+                    }>{decodeText(props.triviaData[2])}</label>
                 </div>
 
                 <div className="q4">
@@ -110,7 +112,7 @@ const SavedQuestion = (props) => {
                     (clickState[3] && props.triviaData[3] !== props.correctAnswer ? ' incorrect' : '') + 
                     (props.triviaData[3] === props.correctAnswer && correct === true ? " correct" : '')
                     
-                  }>{props.triviaData[3]}</label>
+                    }>{decodeText(props.triviaData[3])}</label>
                 </div>
               </div>
             </fieldset>

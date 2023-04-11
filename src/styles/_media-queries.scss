@@ -96,12 +96,20 @@
       }
     }
   }
+    .currentGame {
+      .answers {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+      }}
   .error{
     h2{
         font-size: clamp(4rem, 2vw, 6rem);
         padding-top: 100px;
     }
 }
+
 }
 
 @media(max-width: 650px) {
