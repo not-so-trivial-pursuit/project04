@@ -161,7 +161,6 @@ const IndivSavedGames = () => {
                   correctArray={answerBank}
                   question={savedTrivia.originalData[i].question}
                   key={i}
-
                 />
               );
             })}
