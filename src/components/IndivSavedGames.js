@@ -32,9 +32,9 @@ let valueSet = false;
 
 
 
-const IndivSavedGames = (props) => {
+const IndivSavedGames = () => {
 
-  // const [games, setGames] = useState([]);
+  const [games, setGames] = useState([]);
   const params = useParams();
 
   useEffect(() => {
@@ -53,11 +53,11 @@ const IndivSavedGames = (props) => {
         };
         arrayOfGames.push(gameObj);
       }
-      props.setGames(arrayOfGames);
+    setGames(arrayOfGames);
     });
   }, []);
 
-  let arr = props.games.map((i) => {
+  let arr = games.map((i) => {
     if (i.id === params.id) {
       return i;
     }

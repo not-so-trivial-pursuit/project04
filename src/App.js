@@ -43,8 +43,6 @@ function App() {
   const [questionCategory, setQuestionCategory] = useState(0);
   const [title, setTitle] = useState("");
   const [clickEvent, setClickEvent] = useState(false)
-  const [games, setGames] = useState([]);
-  console.log(games)
 
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
   const [loading, setLoading] = useState(false);
@@ -110,19 +108,12 @@ function App() {
   //   console.error(error)
   //   alert('Oops, something must have gone wrong');
   // }
-
-  const clearGames = () => {
-    if(games !== undefined){
-      console.log('hello')
-      setGames([])
-    }
-  }
     
   return (
     <div className="App">
     <Nav />
       <Routes>
-        <Route path='/' element = {<Home clearGames={clearGames}/>} />
+        <Route path='/' element = {<Home />} />
         <Route path='/form' element={<Form title={title}
         setTitle={setTitle}
           numQuest={numQuest}
@@ -152,10 +143,7 @@ function App() {
           fetchData={fetchData}
           />} />
 
-        <Route path='/individualSavedGame/:id' element = {<IndivSavedGames 
-        games={games} 
-        setGames={setGames}
-        />} />
+        <Route path='/individualSavedGame/:id' element = {<IndivSavedGames/>} />
         <Route path='/gameResult' element = {<GameResult />} />
         <Route path='/*' element = {<Error />} />
       </Routes>
