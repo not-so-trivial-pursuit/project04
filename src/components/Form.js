@@ -53,7 +53,7 @@ const Form = (props) => {
               onChange={handleCatSelection}
               required
             >
-              <option value="Placeholder" disabled selected>
+              <option value="Placeholder" disabled selected >
                 Category
               </option>
               <option value="0">Random Game</option>
@@ -92,7 +92,7 @@ const Form = (props) => {
               onChange={handleNumSelection}
               required
             >
-              <option value="Placeholder" disabled required>
+              <option value="Placeholder" disabled required selected>
                 Number
               </option>
               <option value="5">5</option>
