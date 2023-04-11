@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import Saved from "./Saved";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <section className="home">
       <div className="wrapper flexHome">
@@ -18,7 +18,7 @@ const Home = () => {
         <div className="homeRight">
         <h2>Scroll to select from saved games!</h2>
         <div className="saved">
-            <Saved/>
+            <Saved clearGame={props.clearGame}/>
         </div>
         </div>
       </div>

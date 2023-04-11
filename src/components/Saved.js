@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/icon.png";
 
-const Saved = () => {
+const Saved = (props) => {
   const navigate = useNavigate();
   const [savedGames, setSavedGames] = useState([]);
 
@@ -33,6 +33,7 @@ const Saved = () => {
   // function refreshPage() {
   //   window.location.reload(false);
   // }
+  console.log(props.clearGame)
 
   return (
     <aside>
@@ -40,7 +41,7 @@ const Saved = () => {
         {savedGames.map((indivGame) => {
           return (
             <li key={indivGame.id}>
-              <Link to={`/individualSavedGame/${indivGame.id}`}>
+              <Link onClick={(e) => {props.clearGame(e)}} to={`/individualSavedGame/${indivGame.id}`}>
                 <span className="savedIcon">
                   <img
                     src={icon}
