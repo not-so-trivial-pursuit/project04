@@ -30,9 +30,9 @@ const Saved = () => {
   }, []);
 
   // credits to: https://upmostly.com/tutorials/how-to-refresh-a-page-or-component-in-react
-  // function refreshPage() {
-  //   window.location.reload(false);
-  // }
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
     <aside>
@@ -40,7 +40,7 @@ const Saved = () => {
         {savedGames.map((indivGame) => {
           return (
             <li key={indivGame.id}>
-              <Link to={`/individualSavedGame/${indivGame.id}`}>
+              <Link onClick={refreshPage} to={`/individualSavedGame/${indivGame.id}`}>
                 <span className="savedIcon">
                   <img
                     src={icon}
