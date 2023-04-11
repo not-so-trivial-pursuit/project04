@@ -44,6 +44,7 @@ function App() {
   const [title, setTitle] = useState("");
   const [clickEvent, setClickEvent] = useState(false)
   const [games, setGames] = useState([]);
+  console.log(games)
 
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
   const [loading, setLoading] = useState(false);

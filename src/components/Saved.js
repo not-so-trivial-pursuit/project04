@@ -33,7 +33,11 @@ const Saved = (props) => {
   // function refreshPage() {
   //   window.location.reload(false);
   // }
-  console.log(props.clearGame)
+  // console.log(egg)
+  // const egg = () => {
+  //   console.log("im an egg")
+  //   return undefined
+  // }
 
   return (
     <aside>

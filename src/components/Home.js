@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Saved from "./Saved";
 
 const Home = (props) => {
+  console.log(props.clearGame)
   return (
     <section className="home">
       <div className="wrapper flexHome">
