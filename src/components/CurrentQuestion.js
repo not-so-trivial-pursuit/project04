@@ -61,13 +61,14 @@ const CurrentQuestion = (props) => {
                   <label 
                     htmlFor="one" 
                     tabIndex="0"
-                    onClick={() => { handleClick(0) }} 
+                    onClick onKeyDown ={() => { handleClick(0) }} 
                       className={
                         (hasClicked && props.triviaData[0] === props.correctAnswer ? ' correct' : '') +
                         
                         (clickState[0] && props.triviaData[0] !== props.correctAnswer ? ' incorrect' : '') + 
                         (props.triviaData[0] === props.correctAnswer && correct === true ? " correct" : '') 
-                      }>{decodeText(props.triviaData[0])}
+                      }
+                      >{decodeText(props.triviaData[0])}
                     </label>
                 </div>
 
@@ -82,7 +83,7 @@ const CurrentQuestion = (props) => {
                     <label 
                     htmlFor="two" 
                     tabIndex="0"
-                    onClick={() => { handleClick(1) }} 
+                    onClick onKeyDown={() => { handleClick(1) }} 
                       className={
                         (hasClicked && props.triviaData[1] === props.correctAnswer ? ' correct' : '') + 
                         (clickState[1] && props.triviaData[1] !== props.correctAnswer ? ' incorrect' : '') + 
@@ -103,7 +104,7 @@ const CurrentQuestion = (props) => {
                   <label 
                     htmlFor="three" 
                     tabIndex="0"
-                    onClick={() => { handleClick(2) }} 
+                    onClick onKeyDown={() => { handleClick(2) }} 
                       className={
                         (hasClicked && props.triviaData[2] === props.correctAnswer ? ' correct' : '') +
                         (clickState[2] && props.triviaData[2] !== props.correctAnswer ? ' incorrect' : '') + 
@@ -125,7 +126,7 @@ const CurrentQuestion = (props) => {
                   <label 
                   htmlFor="four" 
                   tabIndex="0"
-                  onClick={() => { handleClick(3) }} 
+                  onClick onKeyDown={() => { handleClick(3) }} 
                     className={
                       (hasClicked && props.triviaData[3] === props.correctAnswer ? ' correct' : '') +
                       (clickState[3] && props.triviaData[3] !== props.correctAnswer ? ' incorrect' : '') + 

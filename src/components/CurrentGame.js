@@ -24,6 +24,7 @@ const CurrentGame = (props) => {
                     correctAnswer = {answerBank[i]}
                     question = {props.trivia.originalData[i].question}
                     key = {i}
+                    // tabIndex = {i}
                     />
                   );
                 })}
