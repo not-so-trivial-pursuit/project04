@@ -30,14 +30,9 @@ const Saved = (props) => {
   }, []);
 
   // credits to: https://upmostly.com/tutorials/how-to-refresh-a-page-or-component-in-react
-  // function refreshPage() {
-  //   window.location.reload(false);
-  // }
-  // console.log(egg)
-  // const egg = () => {
-  //   console.log("im an egg")
-  //   return undefined
-  // }
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
     <aside>
@@ -45,7 +40,7 @@ const Saved = (props) => {
         {savedGames.map((indivGame) => {
           return (
             <li key={indivGame.id}>
-              <Link onClick={(e) => {props.clearGame(e)}} to={`/individualSavedGame/${indivGame.id}`}>
+              <Link onClick={refreshPage} to={`/individualSavedGame/${indivGame.id}`}>
                 <span className="savedIcon">
                   <img
                     src={icon}
