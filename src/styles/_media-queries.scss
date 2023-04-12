@@ -6,25 +6,25 @@
         padding-top: 70px;
       }
     }
+  }
+}
+
+@media (max-width: 1150px) {
+  .error {
+    h2 {
+      padding-top: 100px;
+    }
+  }
+  .home {
     .homeRight {
       .saved {
-        height: 580px;
+        height: calc( 100vh - 130px);
       }
     }
   }
 }
 
-
-@media (max-width: 1050px) {
-    .error{
-        h2{
-            padding-top: 100px;
-        }
-    }
-  }
-
-
-@media (max-width: 930px) {
+@media (max-width: 950px) {
   .home {
     .homeLeft {
       h1 {
@@ -34,38 +34,41 @@
         padding-top: 70px;
       }
     }
-    .homeRight {
-      .saved {
-        height: 560px;
+    .home {
+      .homeRight {
+        width: 35%;
+        .saved {
+          height: calc( 100vh - 140px);
+        }
       }
     }
   }
-    .form {
-      .circle {
-        border-radius: 25px;
-        width: 70%;
-        padding: 50px;
+  .form {
+    .circle {
+      border-radius: 25px;
+      width: 70%;
+      padding: 50px;
 
-        h2 {
-          font-size: clamp(2rem, 2vw, 3.5rem);
-          padding-bottom: 30px;
-          width: 80%;
-        }
+      h2 {
+        font-size: clamp(2rem, 2vw, 3.5rem);
+        padding-bottom: 30px;
+        width: 80%;
+      }
 
-        .categorySelect,
-        .numberSelect {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          align-items: center;
-        }
+      .categorySelect,
+      .numberSelect {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
 
-        #category,
-        #numbers {
-          width: 200px;
-        }
+      #category,
+      #numbers {
+        width: 200px;
       }
     }
+  }
 }
 
 @media (max-width: 730px) {
@@ -96,23 +99,23 @@
       }
     }
   }
-    .currentGame {
-      .answers {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-      }}
-  .error{
-    h2{
-        font-size: clamp(4rem, 2vw, 6rem);
-        padding-top: 100px;
+  .currentGame {
+    .answers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
     }
+  }
+  .error {
+    h2 {
+      font-size: clamp(4rem, 2vw, 6rem);
+      padding-top: 100px;
+    }
+  }
 }
 
-}
-
-@media(max-width: 650px) {
+@media (max-width: 650px) {
   .form {
     .circle {
       border-radius: 25px;
@@ -145,10 +148,9 @@
   }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .form {
     .circle {
-
       padding: none;
 
       h2 {
@@ -156,7 +158,7 @@
       }
 
       label {
-        font-size: clamp(0.7rem, 2vw, 4rem)
+        font-size: clamp(0.7rem, 2vw, 4rem);
       }
 
       #category,
@@ -167,7 +169,6 @@
       label {
         font-size: clamp(0.8rem, 2vw, 3.5rem);
       }
-
     }
   }
 }
@@ -183,23 +184,23 @@
       }
     }
     .homeRight {
-        .saved {
-          ul {
-            li {
-              flex-basis: 49%;
-            }
+      .saved {
+        ul {
+          li {
+            flex-basis: 49%;
           }
         }
       }
-  }
-  .error{
-    h2{
-        font-size: clamp(3rem, 2vw, 5rem);
     }
-}
+  }
+  .error {
+    h2 {
+      font-size: clamp(3rem, 2vw, 5rem);
+    }
+  }
 }
 
-@media(max-width: 400px) {
+@media (max-width: 400px) {
   .form {
     .circle {
       width: 80%;
@@ -207,39 +208,38 @@
       h2 {
         font-size: clamp(1rem, 2vw, 3.5rem);
         padding-bottom: 30px;
-
       }
     }
   }
 }
 
 @media (max-width: 380px) {
-    .home {
-      .homeLeft {
-        h1 {
-          font-size: clamp(2rem, 2vw, 4rem);
-        }
+  .home {
+    .homeLeft {
+      h1 {
+        font-size: clamp(2rem, 2vw, 4rem);
       }
-      .homeRight {
-        .saved {
-          ul {
-            li {
-              flex-basis: 40%;
-            }
+    }
+    .homeRight {
+      .saved {
+        ul {
+          li {
+            flex-basis: 40%;
           }
         }
       }
     }
-    .gameResult{
-        h2{
-            font-size: clamp(3rem, 2vw, 4rem);
-            padding-bottom: 120px;
-        }
-        .homeLink{
-            margin-right: 5px;
-        }
-        a{
-            padding: 10px 15px;
-        }
+  }
+  .gameResult {
+    h2 {
+      font-size: clamp(3rem, 2vw, 4rem);
+      padding-bottom: 120px;
+    }
+    .homeLink {
+      margin-right: 5px;
+    }
+    a {
+      padding: 10px 15px;
     }
   }
+}

@@ -47,7 +47,7 @@
             text-align: center;
         }
         .saved{
-            height: 840px;
+            height: calc( 100vh - 106px);
             overflow-y: scroll;
             text-align: center;
             .savedTitle{

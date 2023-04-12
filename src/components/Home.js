@@ -18,7 +18,7 @@ const Home = () => {
         <div className="homeRight">
         <h2>Scroll to select from saved games!</h2>
         <div className="saved">
-            <Saved/>
+            <Saved />
         </div>
         </div>
       </div>

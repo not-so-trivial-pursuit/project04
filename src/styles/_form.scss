@@ -50,11 +50,11 @@
         }
     }
     .nameGame{
-        background-color: #577F90;
-        color:#f3eae3;
+        background-color:#f3eae3;
+        color:#577F90;
         padding: 15px 20px;
         width: 100%;
-        border: #577F90;
+        border: 2px solid#577F90;
         display: block;
         text-align: center;
         margin: 30px 0;
@@ -71,6 +71,7 @@
         a{
             color: #f3eae3;
         }
+        // fix this
         a:hover,
         a:focus{
         color: #F0917A;
@@ -84,4 +85,3 @@
 
 }
 
-// add a fun hover tab effect to the buttons 

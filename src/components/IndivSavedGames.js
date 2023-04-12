@@ -53,7 +53,7 @@ const IndivSavedGames = () => {
         };
         arrayOfGames.push(gameObj);
       }
-      setGames(arrayOfGames);
+    setGames(arrayOfGames);
     });
   }, []);
 

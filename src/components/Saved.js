@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/icon.png";
 
-const Saved = () => {
+const Saved = (props) => {
   const navigate = useNavigate();
   const [savedGames, setSavedGames] = useState([]);
 

@@ -39,22 +39,37 @@ let triviaData = {};
 
 function App() {
 
-  const [numQuest, setNumQuest] = useState(0);
-  const [questionCategory, setQuestionCategory] = useState(0);
+  const [numQuest, setNumQuest] = useState(null);
+  const [questionCategory, setQuestionCategory] = useState(null);
   const [title, setTitle] = useState("");
   const [clickEvent, setClickEvent] = useState(false)
 
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
   const [loading, setLoading] = useState(false);
 
+  const validateInput = ([ numQuest, questionCategory, title]) => {
+    if (numQuest == null || questionCategory == null|| !title.trim()){
+      return false;
+    } else {
+    return true
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchData();
-    setClickEvent(true);
+
+    const validInput = validateInput([ numQuest, questionCategory, title])
+
+    if (!validInput) {
+      alert('please enter all fields')
+      return null
+    } 
+      fetchData();
+      setClickEvent(true);
   };
 
   const fetchData = () => {
-      // setLoading(true);
+      setLoading(true);
       axios({
       url: "https://opentdb.com/api.php",
       params: {
@@ -63,9 +78,6 @@ function App() {
         type: "multiple",
       },
     }).then((apiData) => {
-      // setLoading(false);
-      // if (apiData.statusText) {
-        
       const shuffledArray = apiData.data.results.map((trivia) => {
         let myArray = [...trivia.incorrect_answers];
         myArray.push(trivia.correct_answer);
@@ -79,6 +91,10 @@ function App() {
       };
 
       setTrivia(triviaData);
+
+      if (trivia) {
+        setLoading(false);
+      }
 
       const db = getDatabase(app);
       const dbRef = ref(db);
@@ -98,18 +114,11 @@ function App() {
       };
       push(dbRef, newGame);
       } 
-      // else {
-      //   throw new Error(apiData.statusText)
-      // }
     )
-  }
-  //   catch (error) {
-  //   setLoading(false);
-  //   console.error(error)
-  //   alert('Oops, something must have gone wrong');
-  // }
     
-
+    setNumQuest(null)
+    setQuestionCategory(null)
+  }
 
 
   return (
@@ -144,6 +153,7 @@ function App() {
           trivia={trivia}
           setTrivia={setTrivia}
           fetchData={fetchData}
+          loading = {loading}
           />} />
 
         <Route path='/individualSavedGame/:id' element = {<IndivSavedGames />} />

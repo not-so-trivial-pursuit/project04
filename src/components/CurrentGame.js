@@ -7,10 +7,10 @@ const CurrentGame = (props) => {
     let answerBank = props.trivia.originalData.map((correctAns) => 
       correctAns.correct_answer
     )
-  
-
       return (
         <>
+        {
+        props.loading === true ? <div className='loading'><h2>something fun is on its way!</h2></div> :
         <section className="currentGame">
           <div className="wrapper background">
             <div className="currentGameContent">
@@ -34,6 +34,7 @@ const CurrentGame = (props) => {
             </div>
           </div>
         </section>
+        }
         </>
       );
 
