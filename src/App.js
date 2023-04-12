@@ -39,18 +39,33 @@ let triviaData = {};
 
 function App() {
 
-  const [numQuest, setNumQuest] = useState(0);
-  const [questionCategory, setQuestionCategory] = useState(0);
+  const [numQuest, setNumQuest] = useState(null);
+  const [questionCategory, setQuestionCategory] = useState(null);
   const [title, setTitle] = useState("");
   const [clickEvent, setClickEvent] = useState(false)
 
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
   const [loading, setLoading] = useState(false);
 
+  const validateInput = ([ numQuest, questionCategory, title]) => {
+    if (numQuest == null || questionCategory == null|| !title.trim()){
+      return false;
+    } else {
+    return true
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchData();
-    setClickEvent(true);
+
+    const validInput = validateInput([ numQuest, questionCategory, title])
+
+    if (!validInput) {
+      alert('please enter all fields')
+      return null
+    } 
+      fetchData();
+      setClickEvent(true);
   };
 
   const fetchData = () => {
@@ -100,6 +115,9 @@ function App() {
       push(dbRef, newGame);
       } 
     )
+    
+    setNumQuest(null)
+    setQuestionCategory(null)
   }
 
 
