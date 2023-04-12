@@ -1,13 +1,14 @@
 footer{
     background-color: #577F90;
     color: #f3eae3;
-    // position: fixed;
-    // bottom: 0;
-    // left: 0;
-    // width: 100%;
-    // z-index: 10;
     p{
         padding: 10px;
         text-align: center;
+        a{
+            color: #f3eae3;
+        }
+        a:visited{
+            color: #f3eae3;
+        }
     }
 }
