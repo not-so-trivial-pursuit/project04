@@ -107,6 +107,12 @@
       flex-wrap: wrap;
     }
   }
+  .loading {
+    h2 {
+      font-size: clamp(4rem, 2vw, 6rem);
+      padding-top: 100px;
+    }
+  }
   .error {
     h2 {
       font-size: clamp(4rem, 2vw, 6rem);
@@ -191,6 +197,11 @@
           }
         }
       }
+    }
+  }
+  .loading {
+    h2 {
+      font-size: clamp(3rem, 2vw, 5rem);
     }
   }
   .error {
