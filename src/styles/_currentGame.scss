@@ -1,3 +1,17 @@
+.loading{
+  text-align: center;
+  height: calc( 100vh - 44px);
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2{
+      font-size: clamp(5rem, 2vw, 7rem);
+  }
+}
+
+
 .currentGame {
   background-image: url(/assets/background.png);
   background-position: top;

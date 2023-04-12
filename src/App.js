@@ -54,7 +54,7 @@ function App() {
   };
 
   const fetchData = () => {
-      // setLoading(true);
+      setLoading(true);
       axios({
       url: "https://opentdb.com/api.php",
       params: {
@@ -63,9 +63,6 @@ function App() {
         type: "multiple",
       },
     }).then((apiData) => {
-      // setLoading(false);
-      // if (apiData.statusText) {
-        
       const shuffledArray = apiData.data.results.map((trivia) => {
         let myArray = [...trivia.incorrect_answers];
         myArray.push(trivia.correct_answer);
@@ -79,6 +76,10 @@ function App() {
       };
 
       setTrivia(triviaData);
+
+      if (trivia) {
+        setLoading(false);
+      }
 
       const db = getDatabase(app);
       const dbRef = ref(db);
@@ -98,18 +99,8 @@ function App() {
       };
       push(dbRef, newGame);
       } 
-      // else {
-      //   throw new Error(apiData.statusText)
-      // }
     )
   }
-  //   catch (error) {
-  //   setLoading(false);
-  //   console.error(error)
-  //   alert('Oops, something must have gone wrong');
-  // }
-    
-
 
 
   return (
@@ -144,6 +135,7 @@ function App() {
           trivia={trivia}
           setTrivia={setTrivia}
           fetchData={fetchData}
+          loading = {loading}
           />} />
 
         <Route path='/individualSavedGame/:id' element = {<IndivSavedGames />} />
