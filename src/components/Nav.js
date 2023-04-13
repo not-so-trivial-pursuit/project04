@@ -4,12 +4,12 @@ import logo from '../assets/logo.png';
 
 
 
-const Nav = () => {
+const Nav = (props) => {
 
     return(
         <nav>
             <div className="wrapper">
-                <Link to="/">
+                <Link to="/" onClick={props.handleClick}>
                     <div className='logo'>
 
                         <figure>

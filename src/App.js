@@ -115,34 +115,22 @@ function App() {
       push(dbRef, newGame);
       } 
     )
-    
+
     setNumQuest(null)
     setQuestionCategory(null)
   }
 
+  const handleClick = () => {
+    setTitle("")
+  }
 
   return (
     <div className="App">
-    <Nav />
+    <Nav handleClick={handleClick} setTitle={setTitle}/>
       <Routes>
         <Route path='/' element = {<Home />} />
-        <Route path='/form' element={<Form title={title}
-        setTitle={setTitle}
-          numQuest={numQuest}
-          setNumQuest={setNumQuest}
-          questionCategory={questionCategory}
-          setQuestionCategory={setQuestionCategory}
-          clickEvent={clickEvent}
-          setClickEvent={setClickEvent}
-          trivia={trivia}
-          setTrivia={setTrivia}
-          fetchData={fetchData}
-          handleSubmit={handleSubmit}
-
-          />}/>
-          
-
-        <Route path='/newGame' element={<CurrentGame title={title}
+        <Route path='/form' element={<Form 
+          title={title}
           setTitle={setTitle}
           numQuest={numQuest}
           setNumQuest={setNumQuest}
@@ -153,6 +141,17 @@ function App() {
           trivia={trivia}
           setTrivia={setTrivia}
           fetchData={fetchData}
+          handleSubmit={handleSubmit}
+          />}/>
+          
+
+        <Route path='/newGame' element={<CurrentGame 
+          title={title}
+          setTitle={setTitle}
+          numQuest={numQuest}
+          questionCategory={questionCategory}
+          clickEvent={clickEvent}
+          trivia={trivia}
           loading = {loading}
           />} />
 
