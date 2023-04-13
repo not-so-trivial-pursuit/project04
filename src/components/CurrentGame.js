@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 
 const CurrentGame = (props) => {
 
+  const handleClick = () => {
+    props.setTitle("")
+  }
+
     let answerBank = props.trivia.originalData.map((correctAns) => 
       correctAns.correct_answer
     )
@@ -29,7 +33,7 @@ const CurrentGame = (props) => {
                 })}
               </ul>
                 <div className="gameEnd">
-                  <Link to="/gameResult">End Game</Link>
+                  <Link onClick={handleClick} to="/gameResult">End Game</Link>
                 </div>
             </div>
           </div>

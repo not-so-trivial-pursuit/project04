@@ -69,6 +69,29 @@
       }
     }
   }
+  .currentGameContent {
+    .answers{
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .q1, 
+    .q2 {
+      width: 50%;
+    }
+    .q3, 
+    .q4 {
+      width: 50%;
+    }
+    .q1,
+    .q3{
+      padding-left: 30px;
+    }
+    .q2, 
+    .q4{
+      justify-content: end;
+      padding-right: 30px;
+    }
+  }
 }
 
 @media (max-width: 730px) {
@@ -105,6 +128,19 @@
       flex-direction: column;
       align-items: center;
       flex-wrap: wrap;
+      justify-content: center;
+      .q1,
+      .q3{
+        padding-left: 0;
+        justify-content: center;
+        align-items: center;
+      }
+      .q2, 
+      .q4{
+        justify-content: center;
+        align-items: center;
+        padding-right: 0;
+      }
     }
   }
   .loading {

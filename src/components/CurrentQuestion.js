@@ -7,6 +7,7 @@ const CurrentQuestion = (props) => {
   const [hasClicked, setHasClicked] = useState(false);
   const [correct, setCorrect] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [enter, setEnter] = useState(false);
 
   const handleClick = (clickedIndex) => {
     const nextArray = clickState.map((state, nextArrIndex) => {
@@ -32,7 +33,7 @@ const CurrentQuestion = (props) => {
   };
 
   const isDisabled = () => {
-    if (hasClicked === true) {
+    if (hasClicked === true ) {
       setDisabled(true);
     }
   };
@@ -69,7 +70,7 @@ const CurrentQuestion = (props) => {
               <label
                 htmlFor="one"
                 tabIndex="0"
-                onClick
+                onClick={() => {handleClick(0)}}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
                     handleClick(0);
@@ -106,10 +107,10 @@ const CurrentQuestion = (props) => {
               <label
                 htmlFor="two"
                 tabIndex="0"
-                onClick
+                onClick={() => {handleClick(1)}}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
-                    handleClick(0);
+                    handleClick(1);
                   }
                 }}
                 className={
@@ -143,10 +144,10 @@ const CurrentQuestion = (props) => {
               <label
                 htmlFor="three"
                 tabIndex="0"
-                onClick
+                onClick={() => {handleClick(2)}}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
-                    handleClick(0);
+                    handleClick(2);
                   }
                 }}
                 className={
@@ -181,10 +182,10 @@ const CurrentQuestion = (props) => {
               <label
                 htmlFor="four"
                 tabIndex="0"
-                onClick
+                onClick={() => {handleClick(3)}}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
-                    handleClick(0);
+                    handleClick(3);
                   }
                 }}
                 className={
