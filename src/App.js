@@ -61,7 +61,7 @@ function App() {
     const validInput = validateInput([ numQuest, questionCategory, title])
 
     if (!validInput) {
-      alert('please enter all fields')
+      // alert('please enter all fields')
       return null
     } 
       fetchData();
