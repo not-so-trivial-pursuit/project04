@@ -6,7 +6,6 @@ const Form = (props) => {
   const [catNum, setCatNum] = useState(null);
   const [questNum, setQuestNum] = useState(null);
 
-
   const handleNumSelection = (e) => {
     props.setNumQuest(e.target.value);
     setQuestNum(e.target.value);
@@ -20,6 +19,22 @@ const Form = (props) => {
   const handleTitleInput = (e) => {
     props.setTitle(e.target.value);
   };
+
+  // const validateInput = ([ numQuest, questionCategory, title]) => {
+  //   if (numQuest === null || questionCategory === null || !title.trim()){
+  //     // alert('please fill in all fields')
+  //     return false;
+      
+  //   } else {
+  //   return true
+    
+    
+  //   }
+  // }
+
+  // const validInput = validateInput([ catNum, questNum, props.title])
+  // console.log(validInput)
+ 
 
   return (
     <>
@@ -37,7 +52,7 @@ const Form = (props) => {
                   onChange={handleCatSelection}
                   required
                 >
-                  <option value="Placeholder" disabled selected>
+                  <option value="Placeholder" disabled selected required>
                     Category
                   </option>
                   <option value="0">Random Game</option>
@@ -78,7 +93,7 @@ const Form = (props) => {
                   onChange={handleNumSelection}
                   required
                 >
-                  <option value="Placeholder" disabled required selected>
+                  <option value="Placeholder" disabled required selected >
                     Number
                   </option>
                   <option value="5">5</option>
@@ -104,18 +119,33 @@ const Form = (props) => {
                 placeholder="Name the game"
               />
 
-              <button
+              < button
                 type="submit"
-                onClick={(e) => {
+                onClick={ (e) => {
                   props.handleSubmit(e);
                 }}
-              >
-                {props.title !== "" && catNum !== null && questNum !== null ? (
+
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    props.handleSubmit(event);
+                  }
+                }}
+                
+              > Game On
+              </button>
+
+              {/* {
+                props.title !== "" && catNum !== null && questNum !== null ? (
                   <Link to="/newGame">Game On</Link>
                 ) : (
                   <Link to="/form">Game on</Link>
-                )}
-              </button>
+                )
+
+                !validInput ? (<Link to="/newGame">Game On</Link>)  : (<Link to="/form">Game on</Link>)
+
+                <Link to="/form">Game on</Link>
+
+                } */}
             </form>
           </div>
         </div>

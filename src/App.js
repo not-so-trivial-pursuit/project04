@@ -9,10 +9,11 @@ import Footer from './components/Footer';
 import Error from './components/Error';
 
 import axios from "axios";
-import { getDatabase, ref, push } from "firebase/database";
+import firebase from './components/Firebase';
+import { getDatabase, ref, push, onValue } from "firebase/database";
 import app from "./components/Firebase";
 
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 import { useState } from "react";
 
 
@@ -21,7 +22,7 @@ const shuffle = (array) => {
   let currentIndex = array.length,
     randomIndex;
 
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
@@ -35,6 +36,9 @@ const shuffle = (array) => {
 
 let triviaData = {};
 
+function refreshPage() {
+  window.location.reload(false);
+}
 
 
 function App() {
@@ -46,8 +50,11 @@ function App() {
 
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
   const [loading, setLoading] = useState(false);
+  const [ gameId, setGameId ] = useState('');
 
-  const validateInput = ([ numQuest, questionCategory, title]) => {
+  const navigate = useNavigate();
+
+  const validateInput = ( numQuest, questionCategory, title) => {
     if (numQuest == null || questionCategory == null|| !title.trim()){
       return false;
     } else {
@@ -55,21 +62,28 @@ function App() {
     }
   }
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const validInput = validateInput([ numQuest, questionCategory, title])
+    const validInput = validateInput( numQuest, questionCategory, title)
 
     if (!validInput) {
-      // alert('please enter all fields')
+      alert('please enter all fields')
       return null
     } 
       fetchData();
       setClickEvent(true);
+    
   };
 
   const fetchData = () => {
       setLoading(true);
+
+      const database = getDatabase(firebase);
+      const dbRef = ref(database);
+
       axios({
       url: "https://opentdb.com/api.php",
       params: {
@@ -114,7 +128,19 @@ function App() {
       };
       push(dbRef, newGame);
       } 
-    )
+    ).then(()=>{
+      
+      onValue(dbRef, (response) => {
+        const data = response.val();
+        console.log(Object)
+        console.log(Object.keys(data))
+        const lastKey = Object.keys(data).pop();
+        console.log(lastKey)
+        setGameId(lastKey);
+        navigate(`/individualSavedGame/${lastKey}`);
+        refreshPage();
+    })
+    })
 
     setNumQuest(null)
     setQuestionCategory(null)
