@@ -21,7 +21,7 @@ const shuffle = (array) => {
   let currentIndex = array.length,
     randomIndex;
 
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
@@ -46,9 +46,10 @@ function App() {
 
   const [trivia, setTrivia] = useState({ shuffledData: [], originalData: [] });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const validateInput = ([ numQuest, questionCategory, title]) => {
-    if (numQuest == null || questionCategory == null|| !title.trim()){
+    if (numQuest == null || questionCategory == null || !title.trim()){
       return false;
     } else {
     return true
@@ -64,13 +65,14 @@ function App() {
       // alert('please enter all fields')
       return null
     } 
-      fetchData();
+      fetchData()
       setClickEvent(true);
   };
 
   const fetchData = () => {
-      setLoading(true);
-      axios({
+    setLoading(true);
+
+      setTimeout(()=>{ axios({
       url: "https://opentdb.com/api.php",
       params: {
         amount: numQuest,
@@ -78,47 +80,56 @@ function App() {
         type: "multiple",
       },
     }).then((apiData) => {
-      const shuffledArray = apiData.data.results.map((trivia) => {
-        let myArray = [...trivia.incorrect_answers];
-        myArray.push(trivia.correct_answer);
 
-        return shuffle(myArray);
-      });
-
-      triviaData = {
-        shuffledData: shuffledArray,
-        originalData: apiData.data.results,
-      };
-
-      setTrivia(triviaData);
-
+      if(apiData.statusText !== 'OK'){
+        setError(true)
+      } else {
+        setError(false);
+        const shuffledArray = apiData.data.results.map((trivia) => {
+          let myArray = [...trivia.incorrect_answers];
+          myArray.push(trivia.correct_answer);
+  
+          return shuffle(myArray);
+        });
+        // console.log(error);
+  
+        triviaData = {
+          shuffledData: shuffledArray,
+          originalData: apiData.data.results,
+        };
+        
+        setTrivia(triviaData);
+      }
+      
       if (trivia) {
         setLoading(false);
       }
-
+      
       const db = getDatabase(app);
       const dbRef = ref(db);
-
+      
       const newGame = {
         userTitle: title,
         userCategory:
-          apiData.data.results[0].category ===
-            apiData.data.results[1].category &&
-            apiData.data.results[0].category ===
-            apiData.data.results[2].category &&
-            apiData.data.results[0].category === apiData.data.results[3].category
+        apiData.data.results[0].category ===
+        apiData.data.results[1].category &&
+        apiData.data.results[0].category ===
+        apiData.data.results[2].category &&
+        apiData.data.results[0].category === apiData.data.results[3].category
             ? apiData.data.results[0].category
             : "Random Questions",
+            
+            userGenGame: apiData.data.results,
+          };
+          push(dbRef, newGame);
+        })
+        // end of then method
+      }, 3000)
 
-        userGenGame: apiData.data.results,
-      };
-      push(dbRef, newGame);
-      } 
-    )
-
-    setNumQuest(null)
-    setQuestionCategory(null)
-  }
+        setNumQuest(null)
+        setQuestionCategory(null)
+    
+    }
 
   const handleClick = () => {
     setTitle("")
@@ -143,7 +154,6 @@ function App() {
           fetchData={fetchData}
           handleSubmit={handleSubmit}
           />}/>
-          
 
         <Route path='/newGame' element={<CurrentGame 
           title={title}
@@ -159,6 +169,11 @@ function App() {
         <Route path='/gameResult' element = {<GameResult />} />
         <Route path='/*' element = {<Error />} />
       </Routes>
+
+      <div>
+        {error === true ? <p>An error occured</p> : null}
+      </div>
+
     <Footer/>
     </div>
 
